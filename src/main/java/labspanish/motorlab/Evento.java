@@ -1,38 +1,32 @@
 package labspanish.motorlab;
 
-import java.util.List;
 
-import javax.swing.text.html.parser.Entity;
-
-import labspanish.utilidades.Distribucion;
 import labspanish.utilidades.Randomizer;
 
 public abstract class Evento {
  
-    private Entity entidad; 
+    private Entidad entidad;     
     private float clock; 
-    private double  ordenDeEstado; // salida, arrivo y fin de servicio  //1) arribo   0.5 fin de simulacion  0) salida // 
-    private Distribucion distribucion; 
+    private double  ordenDeEstado; // salida, arribo y fin de servicio  //1) arribo   0.5 fin de simulacion  0) salida // 
+    private FutureEventList fel;
   
 
-    public void setDistribucion(Distribucion distribucion) {
-        this.distribucion = distribucion;
-    }
+    public abstract  void planificar(FutureEventList fel, Randomizer ramdom, Servidor Servidores);
 
-    public abstract  void planificar(FutureEventList fel, Randomizer ramdom, List<Servidor>Servidores);
-
-    public Evento(Entity entidad, float clock, double ordenDeEstado, Distribucion distribucion) {
+    public Evento(Entidad entidad, float clock, double ordenDeEstado, FutureEventList fel) {
         this.entidad = entidad;
         this.clock = clock;
         this.ordenDeEstado = ordenDeEstado;
-        this.distribucion= distribucion;
+        this.fel = fel;
     }
 
-    public Entity getEntidad() {
+    
+
+    public Entidad getEntidad() {
         return entidad;
     }
 
-    public void setEntidad(Entity entidad) {
+    public void setEntidad(Entidad entidad) {
         this.entidad = entidad;
     }
 
@@ -52,9 +46,6 @@ public abstract class Evento {
         this.ordenDeEstado = ordenDeEstado;
     }
       
-    public Distribucion getDistribucion() {
-        return distribucion;
-    }
 
     
     

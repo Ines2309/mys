@@ -32,12 +32,12 @@ public class Servidor {
     }
 
 
-    public boolean isbusy() {
-        return busy;
+    public boolean isBusy() {
+        return this.busy;
     }
 
 
-    public void setbusy(boolean busy) {
+    public void setBusy(boolean busy) {
         this.busy = busy;
     }
      
