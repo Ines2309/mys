@@ -4,17 +4,17 @@ import java.util.List;
 
 import com.sun.security.ntlm.Server;
 
-import labspanish.utilidades.Ramdomizer;
+import labspanish.utilidades.Randomizer;
 
 public class Boostraping {
     private double tiempoDeSimulacion; 
-    private Ramdomizer ramdom; 
+    private Randomizer random; 
     private FutureEventList fel; 
     private List <Server> servidores;
 
-    public Boostraping(double tiempoDeSimulacion, Ramdomizer ramdom, FutureEventList fel, List<Server> servidores) {
+    public Boostraping(double tiempoDeSimulacion, Randomizer random, FutureEventList fel, List<Server> servidores) {
         this.tiempoDeSimulacion = tiempoDeSimulacion;
-        this.ramdom = ramdom;
+        this.random = random;
         this.fel = fel;
         this.servidores = servidores;
     } 

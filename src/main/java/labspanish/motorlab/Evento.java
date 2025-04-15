@@ -5,7 +5,7 @@ import java.util.List;
 import javax.swing.text.html.parser.Entity;
 
 import labspanish.utilidades.Distribucion;
-import labspanish.utilidades.Ramdomizer;
+import labspanish.utilidades.Randomizer;
 
 public abstract class Evento {
  
@@ -19,9 +19,9 @@ public abstract class Evento {
         this.distribucion = distribucion;
     }
 
-    public abstract  void planificar(FutureEventList fel, Ramdomizer ramdom, List<Servidor>Servidores);
+    public abstract  void planificar(FutureEventList fel, Randomizer ramdom, List<Servidor>Servidores);
 
-    public Evento(Entity entidad, float clock, int ordenDeEstado, Distribucion distribucion) {
+    public Evento(Entity entidad, float clock, double ordenDeEstado, Distribucion distribucion) {
         this.entidad = entidad;
         this.clock = clock;
         this.ordenDeEstado = ordenDeEstado;
@@ -48,7 +48,7 @@ public abstract class Evento {
         return ordenDeEstado;
     }
 
-    public void setOrdenDeEstado(int ordenDeEstado) {
+    public void setOrdenDeEstado(double ordenDeEstado) {
         this.ordenDeEstado = ordenDeEstado;
     }
       

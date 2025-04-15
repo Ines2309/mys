@@ -5,19 +5,19 @@ import java.util.List;
 import javax.swing.text.html.parser.Entity;
 
 import labspanish.utilidades.Distribucion;
-import labspanish.utilidades.Ramdomizer;
+import labspanish.utilidades.Randomizer;
 
 
 
 public class Salida extends Evento {
 
 
-    public Salida(Entity entidad, float clock, int ordenDeEstado, Distribucion distribucion) {
+    public Salida(Entity entidad, float clock, double ordenDeEstado, Distribucion distribucion) {
         super(entidad, clock, ordenDeEstado, distribucion);
     }
     
     @Override
-    public void planificar(FutureEventList fel, Ramdomizer ramdom, List<Servidor> Servidores) {
+    public void planificar(FutureEventList fel, Randomizer ramdom, List<Servidor> Servidores) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
      
