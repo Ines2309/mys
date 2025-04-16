@@ -20,7 +20,13 @@ public abstract class Evento {
         this.fel = fel;
     }
 
-    
+    public FutureEventList getFel() {
+        return fel;
+    }
+
+    public void setFel(FutureEventList fel) {
+        this.fel = fel;
+    }
 
     public Entidad getEntidad() {
         return entidad;

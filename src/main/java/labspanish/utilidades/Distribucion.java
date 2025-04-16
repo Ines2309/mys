@@ -2,7 +2,7 @@ package labspanish.utilidades;
 
 public interface Distribucion {
 
-    double getProbabilidad(double Evento);
-    double getEvento(double acumulativo); 
+    double getProbabilidad(int Evento);
+    int getEvento(double acumulativo); 
     
 }

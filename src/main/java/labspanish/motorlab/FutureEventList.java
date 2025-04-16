@@ -3,8 +3,6 @@ package labspanish.motorlab;
 import java.util.Comparator;
 import java.util.List;
 
-import labspanish.utilidades.Distribucion;
-import labspanish.motorlab.Boostraping;
 
 public class FutureEventList {
 

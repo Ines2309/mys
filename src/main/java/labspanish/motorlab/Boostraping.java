@@ -3,7 +3,6 @@ package labspanish.motorlab;
 import java.util.List;
 
 import labspanish.utilidades.Randomizer;
-import labspanish.motorlab.Servidor;
 
 public class Boostraping {
     private double tiempoDeSimulacion; 

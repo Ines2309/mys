@@ -1,6 +1,5 @@
 package labspanish.motorlab;
 
-import java.util.List;
 
 import labspanish.utilidades.DistribucionSalida;
 import labspanish.utilidades.Randomizer;
