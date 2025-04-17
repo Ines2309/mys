@@ -3,6 +3,7 @@ package labspanish.motorlab;
 
 import labspanish.Entidad;
 import labspanish.utilidades.DistribucionSalida;
+import labspanish.utilidades.RandomMath;
 import labspanish.utilidades.Randomizer;
 
 
@@ -16,7 +17,7 @@ public class Salida extends Evento {
     }
 
     @Override
-    public void planificar(FutureEventList fel, Randomizer ramdom, Servidor Servidores) {
+    public void planificar(FutureEventList fel, RandomMath ramdom) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'planificar'");
     }

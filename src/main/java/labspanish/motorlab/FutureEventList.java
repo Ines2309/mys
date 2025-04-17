@@ -18,6 +18,10 @@ public class FutureEventList {
         this.bt = bt;
     }
 
+    public Servidor pedirServidor() {
+        return bt.buscarServidor();
+    }
+
 
     public Evento inminent(Evento e){
         return fel.remove(0);

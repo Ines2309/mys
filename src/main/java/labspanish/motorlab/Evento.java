@@ -2,6 +2,7 @@ package labspanish.motorlab;
 
 
 import labspanish.Entidad;
+import labspanish.utilidades.RandomMath;
 import labspanish.utilidades.Randomizer;
 
 public abstract class Evento {
@@ -12,7 +13,7 @@ public abstract class Evento {
     private FutureEventList fel;
   
 
-    public abstract  void planificar(FutureEventList fel, Randomizer ramdom, Servidor Servidores);
+    public abstract  void planificar(RandomMath ramdom);
 
     public Evento(Entidad entidad, float clock, double ordenDeEstado, FutureEventList fel) {
         this.entidad = entidad;
