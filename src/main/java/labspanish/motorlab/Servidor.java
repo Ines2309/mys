@@ -1,5 +1,6 @@
 package labspanish.motorlab;
 
+import labspanish.Entidad;
 import labspanish.utilidades.Mysqueue;
 
 public class Servidor {

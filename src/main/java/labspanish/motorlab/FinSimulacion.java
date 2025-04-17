@@ -1,5 +1,6 @@
 package labspanish.motorlab;
 
+import labspanish.Entidad;
 import labspanish.utilidades.Randomizer;
 
 public class FinSimulacion extends Evento{

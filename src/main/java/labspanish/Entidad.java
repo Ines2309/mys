@@ -8,10 +8,10 @@ public class Entidad {
     private Servidor servidor;
     private double clockArribo;
 
-    public Entidad(int identificador, Servidor servidor, double clockArribo) {
+    public Entidad(int identificador, Servidor servidor) {
         this.identificador = identificador;
         this.servidor = servidor;
-        this.clockArribo = clockArribo;
+        this.clockArribo = 0.0;
     }
     
     public double getClockArribo() {

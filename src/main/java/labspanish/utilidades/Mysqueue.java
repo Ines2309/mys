@@ -2,7 +2,7 @@ package labspanish.utilidades;
 
 import java.util.List;
 
-import labspanish.motorlab.Entidad;
+import labspanish.Entidad;
 import labspanish.motorlab.Queue;
 
 public final class Mysqueue implements Queue {

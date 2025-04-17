@@ -1,6 +1,7 @@
 package labspanish.motorlab;
 
 
+import labspanish.Entidad;
 import labspanish.utilidades.DistribucionSalida;
 import labspanish.utilidades.Randomizer;
 
