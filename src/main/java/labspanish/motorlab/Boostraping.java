@@ -2,6 +2,7 @@ package labspanish.motorlab;
 
 import java.util.List;
 
+import labspanish.Entidad;
 import labspanish.utilidades.RandomMath;
 
 public class Boostraping {
@@ -30,6 +31,10 @@ public class Boostraping {
 
         }
 
+    }
+
+    public void ponerEnCola(Entidad entidad) {
+        servidores.get(0).ponerencola(entidad); //solo toma el primer servidor
     }
 
     public Servidor buscarServidor() { //por la politica

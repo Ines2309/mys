@@ -3,6 +3,8 @@ package labspanish.motorlab;
 import java.util.Comparator;
 import java.util.List;
 
+import labspanish.Entidad;
+
 
 public class FutureEventList {
 
@@ -20,7 +22,9 @@ public class FutureEventList {
         return bt.buscarServidor();
     }
     
-
+    public void ponerEnCola(Entidad entidad) {
+        bt.ponerEnCola(entidad);
+    }
 
     public Evento inminent(Evento e){
         return fel.remove(0);

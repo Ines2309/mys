@@ -22,7 +22,10 @@ public class Arribo extends Evento{
                 Salida s = new Salida(getEntidad(), this.getClock()+distribucion.getEvento(ramdom.tirarRandom()), this.getFel());
                 this.getFel().insertar(s);
                 servidor.setBusy(true);
+        } else{ //No hay servidores disponibles
+            this.getFel().ponerEnCola(this.getEntidad()); //Pongo la entidad en la cola del servidor
         }
+        //Planifico el siguiente arribo
         Entidad e = new Entidad(this.getEntidad().getIdentificador()+1);
         Arribo a = new Arribo(e, this.getClock()+distribucion.getEvento(ramdom.tirarRandom()), this.getFel());
         this.getFel().insertar(a);
