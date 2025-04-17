@@ -4,7 +4,6 @@ package labspanish.motorlab;
 import labspanish.Entidad;
 import labspanish.utilidades.DistribucionArribo;
 import labspanish.utilidades.RandomMath;
-import labspanish.utilidades.Randomizer;
 
 public class Arribo extends Evento{
 
@@ -24,7 +23,6 @@ public class Arribo extends Evento{
                 this.getFel().insertar(s);
                 servidor.setBusy(true);
         }
-        this.getFel()
         Entidad e = new Entidad(this.getEntidad().getIdentificador()+1);
         Arribo a = new Arribo(e, this.getClock()+distribucion.getEvento(ramdom.tirarRandom()), this.getFel());
         this.getFel().insertar(a);

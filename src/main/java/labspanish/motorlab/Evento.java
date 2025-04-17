@@ -3,7 +3,6 @@ package labspanish.motorlab;
 
 import labspanish.Entidad;
 import labspanish.utilidades.RandomMath;
-import labspanish.utilidades.Randomizer;
 
 public abstract class Evento {
  

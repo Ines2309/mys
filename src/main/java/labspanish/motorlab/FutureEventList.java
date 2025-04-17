@@ -3,8 +3,6 @@ package labspanish.motorlab;
 import java.util.Comparator;
 import java.util.List;
 
-import labspanish.Entidad;
-
 
 public class FutureEventList {
 
@@ -21,6 +19,7 @@ public class FutureEventList {
     public Servidor pedirServidor() {
         return bt.buscarServidor();
     }
+    
 
 
     public Evento inminent(Evento e){
@@ -33,7 +32,7 @@ public class FutureEventList {
     }
     
     public void inicializar(Servidor servidor) {
-        Entidad primerEntidad = new Entidad(1, servidor);
+        //Entidad primerEntidad = new Entidad(1, servidor);
         //Arribo primerArribo = new Arribo(primerEntidad,0.0);
 
     }
