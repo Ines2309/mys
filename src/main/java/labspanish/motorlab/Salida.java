@@ -1,24 +1,24 @@
 package labspanish.motorlab;
 
-import java.util.List;
 
-import javax.swing.text.html.parser.Entity;
-
-import labspanish.utilidades.Distribucion;
-import labspanish.utilidades.Randomizer;
+import labspanish.Entidad;
+import labspanish.utilidades.DistribucionSalida;
+import labspanish.utilidades.RandomMath;
 
 
 
 public class Salida extends Evento {
 
+    DistribucionSalida distribucion = new DistribucionSalida();
 
-    public Salida(Entity entidad, float clock, double ordenDeEstado, Distribucion distribucion) {
-        super(entidad, clock, ordenDeEstado, distribucion);
+    public Salida(Entidad entidad, float clock , FutureEventList fel) {
+        super(entidad, clock, 0.0,fel);
     }
-    
+
     @Override
-    public void planificar(FutureEventList fel, Randomizer ramdom, List<Servidor> Servidores) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void planificar(RandomMath ramdom) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'planificar'");
     }
      
     //controlar servidor 

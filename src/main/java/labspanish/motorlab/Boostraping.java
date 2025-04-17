@@ -2,17 +2,15 @@ package labspanish.motorlab;
 
 import java.util.List;
 
-import com.sun.security.ntlm.Server;
-
-import labspanish.utilidades.Randomizer;
+import labspanish.utilidades.RandomMath;
 
 public class Boostraping {
     private double tiempoDeSimulacion; 
-    private Randomizer random; 
+    private RandomMath random; 
     private FutureEventList fel; 
-    private List <Server> servidores;
+    private List <Servidor> servidores;
 
-    public Boostraping(double tiempoDeSimulacion, Randomizer random, FutureEventList fel, List<Server> servidores) {
+    public Boostraping(double tiempoDeSimulacion, RandomMath random, FutureEventList fel, List<Servidor> servidores) {
         this.tiempoDeSimulacion = tiempoDeSimulacion;
         this.random = random;
         this.fel = fel;
@@ -32,6 +30,16 @@ public class Boostraping {
 
         }
 
+    }
+
+    public Servidor buscarServidor() { //por la politica
+        for (Servidor s: servidores) {
+            if(!s.isBusy()) {
+                return s;
+            }
+        }
+
+        return null;
     }
     
 
