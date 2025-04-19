@@ -1,7 +1,10 @@
 package labspanish.motorlab;
 
 
+import java.util.List;
+
 import labspanish.Entidad;
+import labspanish.utilidades.Politica;
 import labspanish.utilidades.RandomMath;
 
 public abstract class Evento {
@@ -9,24 +12,14 @@ public abstract class Evento {
     private Entidad entidad;     
     private float clock; 
     private double  ordenDeEstado; // salida, arribo y fin de servicio  //1) arribo   0.5 fin de simulacion  0) salida // 
-    private FutureEventList fel;
   
 
-    public abstract  void planificar(RandomMath ramdom);
+    public abstract  void planificar(RandomMath ramdom, FutureEventList fel, List<Servidor> servidores, Politica politica);
 
-    public Evento(Entidad entidad, float clock, double ordenDeEstado, FutureEventList fel) {
+    public Evento(Entidad entidad, float clock, double ordenDeEstado) {
         this.entidad = entidad;
         this.clock = clock;
         this.ordenDeEstado = ordenDeEstado;
-        this.fel = fel;
-    }
-
-    public FutureEventList getFel() {
-        return fel;
-    }
-
-    public void setFel(FutureEventList fel) {
-        this.fel = fel;
     }
 
     public Entidad getEntidad() {

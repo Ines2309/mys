@@ -3,49 +3,48 @@ package labspanish.motorlab;
 import java.util.List;
 
 import labspanish.Entidad;
+import labspanish.utilidades.Politica;
 import labspanish.utilidades.RandomMath;
 
 public class Boostraping {
     private double tiempoDeSimulacion; 
     private RandomMath random; 
     private FutureEventList fel; 
-    private List <Servidor> servidores;
+    private Politica politica;
 
-    public Boostraping(double tiempoDeSimulacion, RandomMath random, FutureEventList fel, List<Servidor> servidores) {
+    public Boostraping(double tiempoDeSimulacion, RandomMath random, FutureEventList fel, Politica politica) {
         this.tiempoDeSimulacion = tiempoDeSimulacion;
         this.random = random;
         this.fel = fel;
-        this.servidores = servidores;
+        this.politica = politica;
     } 
+    
     
     public void run(){
         Evento evento; 
         double clock =0; 
+        
         while(clock< tiempoDeSimulacion){
             //evento= this.fel.inminete(); 
             //clock= evento.getclock; 
+            //obtener servidor
+            //if(isBusy){
+            //entidad=evento.getEntidad;
+            //entidad.setClock(Clock)
+            //queque.add(entidad)}
+            //else{
+            //calculaocio }
             //evento.planificador(this.fel, ramdom, servidores)
-        
-
-
+            ////servidor.setbusy  y  actualizarservidores
 
         }
 
     }
 
-    public void ponerEnCola(Entidad entidad) {
-        servidores.get(0).ponerencola(entidad); //solo toma el primer servidor
-    }
-
-    public Servidor buscarServidor() { //por la politica
-        for (Servidor s: servidores) {
-            if(!s.isBusy()) {
-                return s;
-            }
-        }
-
-        return null;
-    }
+    // las politicas se hicieron una nueva clase para luego mejorarl
     
-
+    
+    
 }
+
+

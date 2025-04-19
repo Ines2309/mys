@@ -6,32 +6,29 @@ import labspanish.utilidades.Mysqueue;
 public class Servidor {
     private int id; 
     private boolean busy;
-    private Mysqueue queue;
+    private double clockSalida;
     
-    public Servidor(int id, boolean busy, Mysqueue queue) {
+    public Servidor(int id, boolean busy) {
         this.id = id;
         this.busy = false;
-        this.queue=queue;
-    }
-
-    public void ponerencola( Entidad entidad){
-      queue.enqueue(entidad);
-    }
-    public Entidad popEntidad (){
-
-       return queue.dequEntidad();
-
+        this.clockSalida=0.0;
     }
 
     public int getId() {
         return id;
     }
 
-
     public void setId(int id) {
         this.id = id;
     }
 
+    public double getClockSalida() {
+        return clockSalida;
+    }
+
+    public void setClockSalida(double clockSalida) {
+        this.clockSalida = clockSalida;
+    }
 
     public boolean isBusy() {
         return this.busy;
