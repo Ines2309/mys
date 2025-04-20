@@ -1,37 +1,45 @@
 package labspanish.motorlab;
 
 import labspanish.Entidad;
+import labspanish.utilidades.EstadisticaOcio;
 import labspanish.utilidades.Mysqueue;
 
 public class Servidor {
     private int id; 
     private boolean busy;
-    private Mysqueue queue;
+    private double clockSalida;
+    private EstadisticaOcio estadisticaOcio;
     
-    public Servidor(int id, boolean busy, Mysqueue queue) {
+    public Servidor(int id, double tiempoDeSimulacion) {
         this.id = id;
         this.busy = false;
-        this.queue=queue;
+        this.clockSalida=0.0;
+        this.estadisticaOcio= new EstadisticaOcio(tiempoDeSimulacion);
     }
 
-    public void ponerencola( Entidad entidad){
-      queue.enqueue(entidad);
+    public EstadisticaOcio getEstadisticaOcio() {
+        return estadisticaOcio;
     }
-    public Entidad popEntidad (){
 
-       return queue.dequEntidad();
-
+    public void setEstadisticaOcio(EstadisticaOcio estadisticaEspera) {
+        this.estadisticaOcio = estadisticaEspera;
     }
 
     public int getId() {
         return id;
     }
 
-
     public void setId(int id) {
         this.id = id;
     }
 
+    public double getClockSalida() {
+        return clockSalida;
+    }
+
+    public void setClockSalida(double clockSalida) {
+        this.clockSalida = clockSalida;
+    }
 
     public boolean isBusy() {
         return this.busy;
