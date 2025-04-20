@@ -1,6 +1,6 @@
 package labspanish.utilidades;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 import labspanish.Entidad;
@@ -13,7 +13,7 @@ public final class Mysqueue implements Queue {
     private int cantMin;
 
     public Mysqueue(){
-        entidades = new LinkedList<Entidad>();
+        entidades = new ArrayList<Entidad>();
         cantMax = 0;
         cantMin = 0;
     }
@@ -56,6 +56,11 @@ public final class Mysqueue implements Queue {
     }
     public int getCantMin() {
         return cantMin;
+    }
+
+    @Override
+    public String toString() {
+        return("+Largo maximo de fila de espera: " + cantMax +"\n+Largo minimo de fila de espera: " + cantMin + "\n");
     }
 
 }
