@@ -4,7 +4,7 @@ import labspanish.motorlab.Servidor;
 
 public class Politica implements Politic{
     // Atributos
-    private List <Servidor> servidores;
+    private List <Servidor> servidores; // Lista de servidores 
 
     public Politica(List<Servidor> servidores){
         this.servidores = servidores;

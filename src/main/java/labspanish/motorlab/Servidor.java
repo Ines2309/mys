@@ -1,17 +1,28 @@
 package labspanish.motorlab;
 
 import labspanish.Entidad;
+import labspanish.utilidades.EstadisticaOcio;
 import labspanish.utilidades.Mysqueue;
 
 public class Servidor {
     private int id; 
     private boolean busy;
     private double clockSalida;
+    private EstadisticaOcio estadisticaOcio;
     
-    public Servidor(int id, boolean busy) {
+    public Servidor(int id) {
         this.id = id;
         this.busy = false;
         this.clockSalida=0.0;
+        this.estadisticaOcio= new EstadisticaOcio();
+    }
+
+    public EstadisticaOcio getEstadisticaOcio() {
+        return estadisticaOcio;
+    }
+
+    public void setEstadisticaOcio(EstadisticaOcio estadisticaEspera) {
+        this.estadisticaOcio = estadisticaEspera;
     }
 
     public int getId() {

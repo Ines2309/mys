@@ -1,5 +1,6 @@
 package labspanish.motorlab;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import labspanish.Entidad;
@@ -12,9 +13,15 @@ public class FutureEventList {
     private Comparator<Evento> comparador;
     private Mysqueue fila;
 
-    public FutureEventList(List<Evento> fel, Comparator<Evento> comparador) {
-        this.fel = fel;
+    public FutureEventList(Comparator<Evento> comparador) {
+        this.fel = new ArrayList<Evento>(); //FIJARSE SI ES EL CONSTRUCTOR CORRECTO
         this.comparador = comparador;
+    }
+
+    public void inicializar(double tiempoFin) {
+        FinSimulacion fin = new FinSimulacion(tiempoFin);
+        Entidad entidadInicial = new Entidad(1);
+        Arribo inicial = new Arribo(entidadInicial, 0);
     }
  
      public Servidor pedirServidor(Servidor servidor) { 
@@ -29,7 +36,7 @@ public class FutureEventList {
         return fila.dequEntidad();
     }
 
-    public Evento inminent(){
+    public Evento inminente(){
         return fel.remove(0);
     }
     
