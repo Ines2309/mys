@@ -1,19 +1,22 @@
 package labspanish.motorlab;
 
+import java.util.List;
+
 import labspanish.Entidad;
+import labspanish.utilidades.EstadisticaEspera;
+import labspanish.utilidades.Politica;
 import labspanish.utilidades.RandomMath;
 
 public class FinSimulacion extends Evento{
 
-    public FinSimulacion(Entidad entidad, float clock, FutureEventList fel) {
-        super(entidad, clock, 1.0,fel);
+    public FinSimulacion(double findeSimulacion) {
+        super(null, findeSimulacion, 0.5);  //la simualcion termina en el tiempo 60
 
     }
 
     @Override
-    public void planificar(RandomMath ramdom) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'planificar'");
+    public void planificar(RandomMath ramdom,FutureEventList fel, Politica politica, EstadisticaEspera estadist) {
+        // No se planifica nada, ya que es el fin de la simulacion
     }
 
 }
