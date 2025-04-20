@@ -30,25 +30,49 @@ public class Bootstraping {
         
         this.fel.inicializar(tiempoDeSimulacion);
         Evento evento; 
-        double clock =0;
+        double clock = 0;
+        EstadisticaOcio nuevaEstadisticaOcio;
         
         while(clock < tiempoDeSimulacion){  // 
              
             evento = this.fel.inminente();
             evento.planificar(this.random, this.fel, this.politica,this.espera);
-            //actualizo estadisticas
+            //actualizo estadisticas por si acaso tienen valores distintos
+            for (Servidor  servidor : politica.getServidores()) {
+                if(servidor.getEstadisticaOcio().getCantArribos()<espera.getCantArribos()){
+                    espera.setCantArribos(servidor.getEstadisticaOcio().getCantArribos());
+                }else{
+                    nuevaEstadisticaOcio = servidor.getEstadisticaOcio();
+                    nuevaEstadisticaOcio.setCantArribos(espera.getCantArribos());
+                    servidor.setEstadisticaOcio(nuevaEstadisticaOcio);
+                    politica.setEstadoServiodor(servidor);
+                }
+
+                if(servidor.getEstadisticaOcio().getCantAterrizaje()<espera.getCantAterrizaje()){
+                    espera.setCantAterrizaje(servidor.getEstadisticaOcio().getCantAterrizaje());
+                }else{
+                    nuevaEstadisticaOcio = servidor.getEstadisticaOcio();
+                    nuevaEstadisticaOcio.setCantAterrizaje(espera.getCantAterrizaje());
+                    servidor.setEstadisticaOcio(nuevaEstadisticaOcio);
+                    politica.setEstadoServiodor(servidor);
+                }
+
+            }
+            clock = evento.getClock();
+            
 
         }
 
     }
 
-    public EstadisticaOcio obtenerEstadisticasDeOcio() {
-        
-        return politica.getServidor().getEstadisticaOcio();
-    }
+    public List<Servidor> obtenerServidores() {
 
-    // las politicas se hicieron una nueva clase para luego mejorarl
+        return politica.getServidores();
+    }
     
+    public EstadisticaEspera getEspera() {
+        return espera;
+    }
     
     
 }

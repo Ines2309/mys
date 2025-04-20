@@ -7,6 +7,9 @@ public class EstadisticaOcio extends Estadistica{
     
     public EstadisticaOcio(){
         super();
+        totalOcio = 0.0;
+        maxOcio = 0.0;
+        minOcio = 0.0;
     }
 
     public void setMaxOcio(double maxOcio) {
@@ -27,6 +30,11 @@ public class EstadisticaOcio extends Estadistica{
     public double getTotalOcio() {
         return totalOcio;
     }
+
+    public void sumarAlTotalOcio(double ocio) {
+        this.totalOcio += ocio;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

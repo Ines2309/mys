@@ -37,6 +37,14 @@ public abstract class Estadistica {
         return (100*total)/tiempoDeSimulacion;
     }
 
+    public void aumentarArribos(){
+        this.cantArribos += 1;
+    }
+
+    public void aumentarAterrizajes() {
+        this.cantAterrizaje += 1;
+    }
+
 
 
 }

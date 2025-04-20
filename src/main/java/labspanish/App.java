@@ -31,13 +31,16 @@ public class App
         servidores.add(pista1);
         Politica politica = new Politica(servidores);
         
-        Bootstraping bootstraping = new Bootstraping(40320, random, fel, politica, espera);
+        //Tiempo de simulacion 40320
+        Bootstraping bootstraping = new Bootstraping(100, random, fel, politica, espera);
 
         bootstraping.run();
-        
-        //PRINTEAR RESULTADOS ESTADISTICOS
-        //OCIO
-        System.out.println(bootstraping.obtenerEstadisticasDeOcio().toString());
+
+        System.out.println(bootstraping.getEspera().toString());
+        for (Servidor servidor : bootstraping.obtenerServidores()) {
+            System.out.println(servidor.getEstadisticaOcio().toString());
+        }
+
         
     }
 }

@@ -29,4 +29,10 @@ public class Politica implements Politic{
             
     }
 
+    public List<Servidor> getServidores() {
+        return servidores;
+    }
+    public void setServidores(List<Servidor> servidores) {
+        this.servidores = servidores;
+    }
 }

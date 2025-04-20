@@ -13,6 +13,7 @@ public class FutureEventList {
     private Comparator<Evento> comparador;
     private Mysqueue fila;
 
+    
     public FutureEventList(Comparator<Evento> comparador) {
         this.fel = new ArrayList<Evento>(); //FIJARSE SI ES EL CONSTRUCTOR CORRECTO
         this.comparador = comparador;

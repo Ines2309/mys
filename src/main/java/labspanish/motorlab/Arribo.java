@@ -41,11 +41,14 @@ public class Arribo extends Evento {
             // calcular ocio de este servidor
             EstadisticaOcio estadistica = servidor.getEstadisticaOcio();
             double ocio = this.getClock() - servidor.getClockSalida();
-            estadistica.setTotalOcio(estadistica.getTotalOcio()+ocio);
-            estadistica.setCantArribos(estadistica.getCantArribos()+1);
+            estadistica.sumarAlTotalOcio(ocio); // Reemplazo el estadistica.setTotalOcio(estadistica.getTotalOcio()+ocio)
+
+            //estadistica.setCantArribos(estadistica.getCantArribos()+1);
+            estadistica.aumentarArribos();
             if(ocio < estadistica.getMinOcio() && ocio!=0.0){
                 estadistica.setMinOcio(ocio);
             }else if(estadistica.getMinOcio()==0.0){
+                
                 estadistica.setMinOcio(ocio);
             }
             if(ocio > estadistica.getMaxOcio()){
