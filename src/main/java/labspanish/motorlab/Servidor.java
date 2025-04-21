@@ -10,11 +10,11 @@ public class Servidor {
     private double clockSalida;
     private EstadisticaOcio estadisticaOcio;
     
-    public Servidor(int id) {
+    public Servidor(int id, double tiempodeSimulacion) {
         this.id = id;
         this.busy = false;
         this.clockSalida=0.0;
-        this.estadisticaOcio= new EstadisticaOcio();
+        this.estadisticaOcio= new EstadisticaOcio(tiempodeSimulacion);
     }
 
     public EstadisticaOcio getEstadisticaOcio() {

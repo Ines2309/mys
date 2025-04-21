@@ -17,12 +17,16 @@ public class FutureEventList {
     public FutureEventList(Comparator<Evento> comparador) {
         this.fel = new ArrayList<Evento>(); //FIJARSE SI ES EL CONSTRUCTOR CORRECTO
         this.comparador = comparador;
+        this.fila = new Mysqueue();
     }
 
     public void inicializar(double tiempoFin) {
         FinSimulacion fin = new FinSimulacion(tiempoFin);
         Entidad entidadInicial = new Entidad(1);
         Arribo inicial = new Arribo(entidadInicial, 0);
+        this.insertar(inicial);
+        this.insertar(fin);
+        
     }
  
      public Servidor pedirServidor(Servidor servidor) { 

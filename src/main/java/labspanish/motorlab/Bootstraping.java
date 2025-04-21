@@ -37,9 +37,10 @@ public class Bootstraping {
              
             evento = this.fel.inminente();
             evento.planificar(this.random, this.fel, this.politica,this.espera);
+            
             //actualizo estadisticas por si acaso tienen valores distintos
             for (Servidor  servidor : politica.getServidores()) {
-                if(servidor.getEstadisticaOcio().getCantArribos()<espera.getCantArribos()){
+                if(servidor.getEstadisticaOcio().getCantArribos() > espera.getCantArribos()){
                     espera.setCantArribos(servidor.getEstadisticaOcio().getCantArribos());
                 }else{
                     nuevaEstadisticaOcio = servidor.getEstadisticaOcio();
@@ -48,7 +49,7 @@ public class Bootstraping {
                     politica.setEstadoServiodor(servidor);
                 }
 
-                if(servidor.getEstadisticaOcio().getCantAterrizaje()<espera.getCantAterrizaje()){
+                if(servidor.getEstadisticaOcio().getCantAterrizaje() > espera.getCantAterrizaje()){
                     espera.setCantAterrizaje(servidor.getEstadisticaOcio().getCantAterrizaje());
                 }else{
                     nuevaEstadisticaOcio = servidor.getEstadisticaOcio();
@@ -56,7 +57,8 @@ public class Bootstraping {
                     servidor.setEstadisticaOcio(nuevaEstadisticaOcio);
                     politica.setEstadoServiodor(servidor);
                 }
-
+                System.out.println(fel.toString());
+              
             }
             clock = evento.getClock();
             

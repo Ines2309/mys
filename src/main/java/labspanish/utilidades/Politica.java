@@ -21,11 +21,21 @@ public class Politica implements Politic{
     }
 
     public void setEstadoServiodor(Servidor servidor){
+        //actualizar servidor
+        
         for(int i=0; i<servidores.size();i++){
+            if(servidor.getId() == servidores.get(i).getId()){
+                servidores.get(i).setBusy(servidor.isBusy());
+                servidores.get(i).setEstadisticaOcio(servidor.getEstadisticaOcio());
+                servidores.get(i).setClockSalida(servidor.getClockSalida());
+            }
+        }
+    
+       /* for(int i=0; i<servidores.size();i++){
             if(servidor.getId() == servidores.get(i).getId()){
                 servidores.add(i, servidor);
             }
-        }
+        }*/
             
     }
 

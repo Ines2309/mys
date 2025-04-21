@@ -5,8 +5,8 @@ public class EstadisticaOcio extends Estadistica{
     private double maxOcio;
     private double minOcio;
     
-    public EstadisticaOcio(){
-        super();
+    public EstadisticaOcio(double tiempodeSimulacion){
+        super(tiempodeSimulacion);
         totalOcio = 0.0;
         maxOcio = 0.0;
         minOcio = 0.0;

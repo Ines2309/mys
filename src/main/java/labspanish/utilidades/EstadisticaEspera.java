@@ -6,8 +6,8 @@ public class EstadisticaEspera extends Estadistica{
     private double minEspera;
     private double canMaxSistemas, canMinSistemas, cantTotalSistema;
 
-    public EstadisticaEspera(){
-        super();
+    public EstadisticaEspera(double tiempoDeSimulacion){
+        super(tiempoDeSimulacion);
         totalEspera = 0.0;
         maxEspera = 0.0;
         minEspera = 0.0;
@@ -57,6 +57,10 @@ public class EstadisticaEspera extends Estadistica{
     }
     public double getCantTotalSistema() {
         return cantTotalSistema;
+    }
+
+    public void sumarAlTotalEspera(double espera) {
+        this.totalEspera += espera;
     }
 
     @Override

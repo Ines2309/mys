@@ -5,7 +5,8 @@ public abstract class Estadistica {
     private int cantAterrizaje;
     private double tiempoDeSimulacion;
 
-    public Estadistica(){
+    public Estadistica( double tiempoDeSimulacion) {
+        this.tiempoDeSimulacion = tiempoDeSimulacion;
         cantArribos = 0;
         cantAterrizaje = 0;     
     }
@@ -45,6 +46,6 @@ public abstract class Estadistica {
         this.cantAterrizaje += 1;
     }
 
-
+  
 
 }

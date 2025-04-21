@@ -26,8 +26,7 @@ public class Arribo extends Evento {
 
   @Override
     public void planificar(RandomMath ramdom, FutureEventList fel, Politica politica, EstadisticaEspera estadisticaEspera) {
-        double tiempodeServicio=0; 
-        double tiempoEntreArribos=0;
+    
         Servidor servidor= politica.getServidor(); //Me devuelve un servidor desocupado segun la politica
 
         Entidad entidad = this.getEntidad();
@@ -55,14 +54,16 @@ public class Arribo extends Evento {
                 estadistica.setMaxOcio(ocio);
             }
 
+            politica.setEstadoServiodor(servidor);
+
         }else{
             fel.ponerEnCola(entidad);
         }
         //Planifico el siguiente arrivo
-        Entidad evento = new Entidad(this.getEntidad().getIdentificador()+1);
+        Entidad evento = new Entidad(entidad.getIdentificador()+1);
         Arribo arribo = new Arribo(evento, this.getClock()+distribucion.getEvento(ramdom.tirarRandom()));
         fel.insertar(arribo);
-        politica.setEstadoServiodor(servidor);
+    
     }
       
 
