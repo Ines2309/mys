@@ -10,7 +10,7 @@ import labspanish.utilidades.RandomMath;
 public class FinSimulacion extends Evento{
 
     public FinSimulacion(double findeSimulacion) {
-        super(null, findeSimulacion, 0.5);  //la simualcion termina en el tiempo 60
+        super(new Entidad(-1), findeSimulacion, 0.5);  //la simualcion termina en el tiempo 60
 
     }
 

@@ -21,27 +21,27 @@ import labspanish.motorlab.Servidor;
 public class App 
 {
     public static void main( String[] args )    {
+        double tiempoSimulacion = 40320;
         RandomMath random = new RandomMath();
-        EstadisticaEspera espera = new EstadisticaEspera(100);
+        EstadisticaEspera espera = new EstadisticaEspera(tiempoSimulacion);
         Ordenador comparator = new Ordenador();
         FutureEventList fel = new FutureEventList(comparator);
-        Servidor pista1 = new Servidor(1,100);
+        Servidor pista1 = new Servidor(1,tiempoSimulacion);
         List<Servidor> servidores = new ArrayList<Servidor>();
         servidores.add(pista1);
         Politica politica = new Politica(servidores);
         
         //Tiempo de simulacion 40320
-        Bootstraping bootstraping = new Bootstraping(100, random, fel, politica, espera);
+        Bootstraping bootstraping = new Bootstraping(tiempoSimulacion, random, fel, politica, espera);
 
         bootstraping.run();
         
-        System.out.println(fel.toString());
-        System.out.println(fel.getFila().toString());
-
         System.out.println(bootstraping.getEspera().toString());
         for (Servidor servidor : bootstraping.obtenerServidores()) {
             System.out.println(servidor.getEstadisticaOcio().toString());
         }
+        
+        System.out.println(fel.getFila().toString());
 
         
     }

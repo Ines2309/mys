@@ -58,9 +58,10 @@ public class FutureEventList {
     }
     @Override
         public String toString(){
-          String output= "================================== fel ==================================";
+          String output= "================================== fel ==================================\n";
           for (Evento evento: this.fel ){
-            output += "["+evento.getClock()+","+ evento.getOrdenDeEstado()+"]\n";
+            
+            output += "["+evento.getClock()+","+ evento.getOrdenDeEstado()+","+ evento.getEntidad().getIdentificador()+"]\n";
 
           }
           return output +="**************************************";

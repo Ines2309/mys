@@ -45,7 +45,7 @@ public class Arribo extends Evento {
 
             //estadistica.setCantArribos(estadistica.getCantArribos()+1);
             estadistica.aumentarArribos();
-            if(ocio < estadistica.getMinOcio() && ocio!=0.0){
+            if(ocio < estadistica.getMinOcio() && ocio!=0.0){  //Modularizar a Estadistica
                 estadistica.setMinOcio(ocio);
             }else if(estadistica.getMinOcio()==0.0){
                 

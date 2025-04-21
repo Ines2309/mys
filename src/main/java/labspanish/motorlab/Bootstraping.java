@@ -35,6 +35,7 @@ public class Bootstraping {
         
         while(clock < tiempoDeSimulacion){  // 
              
+            System.out.println(fel.toString());
             evento = this.fel.inminente();
             evento.planificar(this.random, this.fel, this.politica,this.espera);
             //actualizo estadisticas por si acaso tienen valores distintos
