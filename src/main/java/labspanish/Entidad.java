@@ -1,6 +1,5 @@
 package labspanish;
 
-import labspanish.motorlab.Servidor;
 
 public class Entidad {
 
@@ -27,6 +26,8 @@ public class Entidad {
     public void setIdentificador(int identificador) {
         this.identificador = identificador;
     }
+    
+    
     
     
 }

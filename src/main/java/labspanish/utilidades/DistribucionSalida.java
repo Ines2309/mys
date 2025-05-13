@@ -1,9 +1,9 @@
 package labspanish.utilidades;
 
-public class DistribucionSalida implements Distribucion{
+public class DistribucionSalida extends Distribucion{
 
     @Override
-    public double getProbabilidad(int event) {
+    public double getProbabilidad(double event) {
         if(event == 8){
             return 0.38;
         }
@@ -22,7 +22,7 @@ public class DistribucionSalida implements Distribucion{
     }
 
     @Override
-    public int getEvento(double acumulativo) {
+    public double getTiempo(double acumulativo) {
         if(acumulativo < 0.38){
             return 8;
         }

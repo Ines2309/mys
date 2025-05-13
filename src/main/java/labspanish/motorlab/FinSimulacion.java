@@ -10,13 +10,18 @@ import labspanish.utilidades.RandomMath;
 public class FinSimulacion extends Evento{
 
     public FinSimulacion(double findeSimulacion) {
-        super(null, findeSimulacion, 0.5);  //la simualcion termina en el tiempo 60
+        super(new Entidad(-1), findeSimulacion, 0.5);  //la simualcion termina en el tiempo 60
 
     }
 
     @Override
     public void planificar(RandomMath ramdom,FutureEventList fel, Politica politica, EstadisticaEspera estadist) {
         // No se planifica nada, ya que es el fin de la simulacion
+    }
+
+    @Override
+    public void aplicarEfectoSecundario(RandomMath ramdom) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }
