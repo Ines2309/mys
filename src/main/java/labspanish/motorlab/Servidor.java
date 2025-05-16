@@ -9,7 +9,6 @@ public class Servidor {
     private boolean busy;
     private double clockSalida;
     private EstadisticaOcio estadisticaOcio;
-    private Mysqueue fila;
     
     public Servidor(int id, double tiempoDeSimulacion) {
         this.id = id;

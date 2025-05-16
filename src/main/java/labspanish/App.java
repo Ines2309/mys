@@ -40,7 +40,7 @@ public class App
         for (Servidor servidor : bootstraping.obtenerServidores()) {
             System.out.println(servidor.getEstadisticaOcio().toString());
         }
-           //aca queremos ver el maximo y minimo de espera de todos los servidores
+        
         System.out.println(fel.getFila().toString());
 
         
