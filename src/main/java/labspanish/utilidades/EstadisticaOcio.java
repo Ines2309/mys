@@ -38,11 +38,11 @@ public class EstadisticaOcio extends Estadistica{
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("+Tiempo de ocio: \n+    Total: " + totalOcio + "\n");
-        sb.append("+    Media: " + this.calcularMedia(totalOcio, this.getCantArribos()) + "\n");
-        sb.append("+    Maximo: " + maxOcio + "\n");
-        sb.append("+    Minimo: " + minOcio + "\n");
-        sb.append("+    Porcentaje del total: " + this.calcularPorcentaje(totalOcio,this.getTiempoDeSimulacion()) + "%\n");
+        sb.append("+Tiempo de ocio: \n+    Total: " +String.format("%.2f", totalOcio )+ "\n");
+        sb.append("+    Media: " + String.format("%.2f",this.calcularMedia(totalOcio, this.getCantArribos()) )+ "\n");
+        sb.append("+    Maximo: " + String.format("%.2f", maxOcio) + "\n");
+        sb.append("+    Minimo: " + String.format("%.2f",minOcio )+ "\n");
+        sb.append("+    Porcentaje del total: " + String.format("%.2f",this.calcularPorcentaje(totalOcio,this.getTiempoDeSimulacion())) + "%\n");
         sb.append("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n");
         return sb.toString();
     }

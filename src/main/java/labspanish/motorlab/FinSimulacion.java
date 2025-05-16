@@ -1,7 +1,5 @@
 package labspanish.motorlab;
 
-import java.util.List;
-
 import labspanish.Entidad;
 import labspanish.utilidades.EstadisticaEspera;
 import labspanish.utilidades.Politica;
@@ -15,8 +13,14 @@ public class FinSimulacion extends Evento{
     }
 
     @Override
-    public void planificar(RandomMath ramdom,FutureEventList fel, Politica politica, EstadisticaEspera estadist) {
+    public boolean planificar(RandomMath ramdom,FutureEventList fel, Politica politica, EstadisticaEspera estadist) {
         // No se planifica nada, ya que es el fin de la simulacion
+        return false;
+    }
+
+    @Override
+    public void aplicarEfectoSecundario(RandomMath ramdom) {
+        // No se aplica ningun efecto secundario, ya que es el fin de la simulacion
     }
 
 }

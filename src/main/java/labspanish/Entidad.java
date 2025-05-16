@@ -1,6 +1,5 @@
 package labspanish;
 
-import labspanish.motorlab.Servidor;
 
 public class Entidad {
 

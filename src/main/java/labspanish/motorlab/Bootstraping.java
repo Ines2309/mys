@@ -1,9 +1,7 @@
 package labspanish.motorlab;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import labspanish.Entidad;
 import labspanish.utilidades.EstadisticaEspera;
 import labspanish.utilidades.EstadisticaOcio;
 import labspanish.utilidades.Politica;
@@ -32,37 +30,40 @@ public class Bootstraping {
         Evento evento; 
         double clock = 0;
         EstadisticaOcio nuevaEstadisticaOcio;
+        boolean ejecutaArribo;
+        int cantidadArribos=0;
+        int cantidadAterrizaje=0;
         
-        while(clock < tiempoDeSimulacion){  // 
-             
+        while(clock < tiempoDeSimulacion){  // no esta arribando
             System.out.println(fel.toString());
             evento = this.fel.inminente();
-            evento.planificar(this.random, this.fel, this.politica,this.espera);
+            ejecutaArribo=evento.planificar(this.random, this.fel, this.politica,this.espera);
             //actualizo estadisticas por si acaso tienen valores distintos
-            for (Servidor  servidor : politica.getServidores()) {
-                if(servidor.getEstadisticaOcio().getCantArribos() > espera.getCantArribos()){
-                    espera.setCantArribos(servidor.getEstadisticaOcio().getCantArribos());
-                }else{
-                    nuevaEstadisticaOcio = servidor.getEstadisticaOcio();
-                    nuevaEstadisticaOcio.setCantArribos(espera.getCantArribos());
-                    servidor.setEstadisticaOcio(nuevaEstadisticaOcio);
-                    politica.setEstadoServiodor(servidor);
-                }
 
-                if(servidor.getEstadisticaOcio().getCantAterrizaje() > espera.getCantAterrizaje()){
-                    espera.setCantAterrizaje(servidor.getEstadisticaOcio().getCantAterrizaje());
-                }else{
-                    nuevaEstadisticaOcio = servidor.getEstadisticaOcio();
-                    nuevaEstadisticaOcio.setCantAterrizaje(espera.getCantAterrizaje());
-                    servidor.setEstadisticaOcio(nuevaEstadisticaOcio);
-                    politica.setEstadoServiodor(servidor);
-                }
+            if(ejecutaArribo){
+                cantidadArribos+=1;
+            }
+            if(evento.getOrdenDeEstado()== 0.0){
+                cantidadAterrizaje+=1;
+            }
+
+            evento.aplicarEfectoSecundario(random);
+            
+            clock = evento.getClock();
+        }
+        
+        //Guarda cantidades
+        espera.setCantArribos(cantidadArribos);
+        espera.setCantAterrizaje(cantidadAterrizaje);
+
+        for (Servidor  servidor : politica.getServidores()) {
+
+                nuevaEstadisticaOcio = servidor.getEstadisticaOcio();
+                nuevaEstadisticaOcio.setCantArribos(cantidadArribos);
+                nuevaEstadisticaOcio.setCantAterrizaje(cantidadAterrizaje);
+                servidor.setEstadisticaOcio(nuevaEstadisticaOcio);
 
             }
-            clock = evento.getClock();
-            
-
-        }
 
     }
 

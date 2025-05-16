@@ -69,17 +69,17 @@ public class EstadisticaEspera extends Estadistica{
         sb.append("+-+-+-+-+-+-+-+-+-++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n");
         sb.append("+ Total de Aeronaves que arribaron: " + this.getCantArribos() + "\n");
         sb.append("+ Total de Aeronaves que aterrizaron: " + this.getCantAterrizaje() +  "\n");
-        sb.append("+------+");
-        sb.append("Media de tiempo en sistema: "+ this.calcularMedia(cantTotalSistema, this.getCantArribos()) + "\n");
-        sb.append("Maximo de tiempo en sistema: " + canMaxSistemas + "\n");
-        sb.append("Minimo de tiempo en sistema: " + canMinSistemas + "\n");
-        sb.append("+------+");
-        sb.append("+ Tiempo de espera: \n+    Total: " + totalEspera + "\n");
-        sb.append("+    Media: " + this.calcularMedia(totalEspera, this.getCantArribos()) + "\n");
-        sb.append("+    Maximo: " + maxEspera + "\n");
-        sb.append("+    Minimo: " + minEspera + "\n");
-        sb.append("+    Porcentaje del total: " + this.calcularPorcentaje(totalEspera,this.getTiempoDeSimulacion()) + "%\n");
-        sb.append("+------+");
+        sb.append("+------+\n");
+        sb.append("Media de tiempo en sistema: "+ String.format("%.2f", this.calcularMedia(cantTotalSistema, this.getCantArribos())) + "\n");
+        sb.append("Maximo de tiempo en sistema: " + String.format("%.2f",canMaxSistemas) + "\n");
+        sb.append("Minimo de tiempo en sistema: " + String.format("%.2f",canMinSistemas) + "\n");
+        sb.append("+------+\n");
+        sb.append("+ Tiempo de espera: \n+    Total: " + String.format("%.2f",totalEspera )+ "\n");
+        sb.append("+    Media: " + String.format("%.2f",this.calcularMedia(totalEspera, this.getCantArribos())) + "\n");
+        sb.append("+    Maximo: " + String.format("%.2f",maxEspera) + "\n");
+        sb.append("+    Minimo: " + String.format("%.2f", minEspera) + "\n");
+        sb.append("+    Porcentaje del total: " +String.format("%.2f", this.calcularPorcentaje(totalEspera,this.getTiempoDeSimulacion()) )+ "%\n");
+        sb.append("+------+\n");
         return sb.toString();
     }
 }
