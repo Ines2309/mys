@@ -1,7 +1,9 @@
 package labspanish.motorlab;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import labspanish.Entidad;
 import labspanish.utilidades.EstadisticaEspera;
 import labspanish.utilidades.EstadisticaOcio;
 import labspanish.utilidades.Politica;

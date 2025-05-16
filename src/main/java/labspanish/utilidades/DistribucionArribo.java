@@ -8,10 +8,10 @@ package labspanish.utilidades;
  *
  * @author santi
  */
-public class DistribucionArribo extends Distribucion{
+public class DistribucionArribo implements Distribucion{
 
     @Override
-    public double getProbabilidad(double event) {
+    public double getProbabilidad(int event) {
         if(event == 10){
             return 0.35;
         }
@@ -27,7 +27,7 @@ public class DistribucionArribo extends Distribucion{
 
 
     @Override
-    public double getTiempo(double acumulativo) {
+    public int getEvento(double acumulativo) {
         if(acumulativo < 0.35){
             return 10;
         }

@@ -1,17 +1,8 @@
 package labspanish.utilidades;
 
-public abstract class Distribucion {
+public interface Distribucion {
 
-    public double mediaDistribucion;
-    public double desviacionDistribucion;
-    
-    public Distribucion() {   
-    }
-    public Distribucion (double media, double desviacion ){
-        this.mediaDistribucion=media;
-        this.desviacionDistribucion=desviacion;
-    }
-    abstract public double getProbabilidad(double Evento);
-    abstract public double getTiempo(double acumulativo); 
+    double getProbabilidad(int Evento);
+    int getEvento(double acumulativo); 
     
 }

@@ -8,7 +8,7 @@ import java.util.List;
 import labspanish.motorlab.Bootstraping;
 import labspanish.motorlab.FutureEventList;
 import labspanish.utilidades.EstadisticaEspera;
-
+import labspanish.utilidades.EstadisticaOcio;
 import labspanish.utilidades.Ordenador;
 import labspanish.utilidades.Politica;
 import labspanish.motorlab.Servidor;
@@ -40,8 +40,8 @@ public class App
         for (Servidor servidor : bootstraping.obtenerServidores()) {
             System.out.println(servidor.getEstadisticaOcio().toString());
         }
-        System.out.println(politica.inforServidor());
            //aca queremos ver el maximo y minimo de espera de todos los servidores
+        System.out.println(fel.getFila().toString());
 
         
     }
