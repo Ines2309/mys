@@ -76,7 +76,13 @@ public class Bootstraping {
         return espera;
     }
     
-    
+    public Politica getPolitica() {
+        return politica;
+    }
+
+    public FutureEventList getFel() {
+        return fel;
+    }
 }
 
 

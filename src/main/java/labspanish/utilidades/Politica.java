@@ -1,5 +1,6 @@
 package labspanish.utilidades;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import labspanish.motorlab.Servidor;
@@ -72,5 +73,41 @@ public class Politica implements Politic {
 
         return("+Largo maximo de fila de espera: " + maximo +"\n+Largo minimo de fila de espera: " + minimo + "\n"); 
 
+    }
+
+    public int getMaxFilaEspera() {
+        int maximo=0;
+        for(Servidor servidor : servidores) {
+            if(servidor.getFila().getCantMax() > maximo){
+                maximo=servidor.getFila().getCantMax();
+            }
+        }
+        return maximo;
+    }
+
+    public int getMinFilaEspera() {
+        int minimo=0;
+        for(Servidor servidor : servidores) {
+            if((servidor.getFila().getCantMin()<minimo)||(minimo==0)){
+                minimo=servidor.getFila().getCantMin();
+            }
+        }
+        return minimo;
+    }
+    
+    public List<EstadisticaOcio> getEstadisticasOcio() {
+        List<EstadisticaOcio> estadisticas = new ArrayList<>();
+        for (Servidor servidor : servidores) {
+            estadisticas.add(servidor.getEstadisticaOcio());
+        }
+        return estadisticas;
+    }
+
+    public List<Double> getListaDesgaste() {
+        List<Double> listaDesgaste = new ArrayList<>();
+        for (Servidor servidor : servidores) {
+            listaDesgaste.add((double) servidor.getDesgaste());
+        }
+        return listaDesgaste;
     }
 }
