@@ -7,6 +7,7 @@ import labspanish.motorlab.Bootstraping;
 import labspanish.motorlab.FutureEventList;
 import labspanish.motorlab.Servidor;
 import labspanish.utilidades.EstadisticaEspera;
+import labspanish.utilidades.EstadisticaOcio;
 import labspanish.utilidades.Ordenador;
 import labspanish.utilidades.Politica;
 import labspanish.utilidades.RandomMath;
@@ -21,7 +22,10 @@ public class App
     public static void main( String[] args )    {
         double tiempoSimulacion = 403; // 40320
         RandomMath random = new RandomMath();
+        
         EstadisticaEspera espera = new EstadisticaEspera(tiempoSimulacion);
+        EstadisticaOcio ocio = new EstadisticaOcio(tiempoSimulacion);
+        
         Ordenador comparator = new Ordenador();
         FutureEventList fel = new FutureEventList(comparator);
         Servidor pista1 = new Servidor(1,tiempoSimulacion);

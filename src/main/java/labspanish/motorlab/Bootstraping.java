@@ -72,7 +72,7 @@ public class Bootstraping {
         return politica.getServidores();
     }
     
-    public EstadisticaEspera getEspera() {
+    public EstadisticaEspera getEspera(){
         return espera;
     }
     
