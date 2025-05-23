@@ -16,7 +16,7 @@ public class FutureEventList {
     
     public FutureEventList() {
         this.fel = new ArrayList<Evento>(); //FIJARSE SI ES EL CONSTRUCTOR CORRECTO
-        ;
+        
     }
 
     public void inicializar(double tiempoFin) {

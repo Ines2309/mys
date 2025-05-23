@@ -1,9 +1,15 @@
 package labspanish.utilidades;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ReplicacionDeEjecuciones {
+    private List<Ejecucion> ejecuciones;
     
+    public ReplicacionDeEjecuciones(List<Ejecucion> ejecuciones) {
+        this.ejecuciones = ejecuciones;
+    }
+
     public static Intervalo estimarIntervalos(List<Double> ejecuciones) {
 
         double media = mediaDeMedias(ejecuciones);
@@ -33,6 +39,22 @@ public class ReplicacionDeEjecuciones {
         }
         return suma / ejecuciones.size();
     }
+
+    private Intervalo estadisticaEsperaMedia() {
+
+     List <Double> resultados= new ArrayList<>(); 
+     EstadisticaEspera espera;
+     
+
+    /*  for (Ejecucion ejecucion : ejecuciones){
+        espera = ejecucion.getEstadisticaTotal().getEspera();
+        resultados.add(espera.calcularMedia(espera.getTotalEspera(),espera.getCantArribos()));
+
+     }
+     return a;
+        
+    }
+     */
 
 
 }

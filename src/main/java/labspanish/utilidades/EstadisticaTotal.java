@@ -15,14 +15,52 @@ public class EstadisticaTotal {
  
 
     public EstadisticaTotal(Bootstraping bs) {
-        this.ocio = bs.getPolitica().getEstadisticasOcio();
+        this.ocio = bs.getPolitica().getEstadisticasOcio(); 
         this.espera = bs.getEspera();
         this.listaDesgaste = bs.getPolitica().getListaDesgaste();
         this.maxFila = bs.getPolitica().getMaxFilaEspera();
         this.minFila = bs.getPolitica().getMinFilaEspera();
     }
     
-    
+    public List<EstadisticaOcio> getOcio() {
+        return ocio;
+    }
+
+    public void setOcio(List<EstadisticaOcio> ocio) {
+        this.ocio = ocio;
+    }
+
+    public EstadisticaEspera getEspera() {
+        return espera;
+    }
+
+    public void setEspera(EstadisticaEspera espera) {
+        this.espera = espera;
+    }
+
+    public List<Double> getListaDesgaste() {
+        return listaDesgaste;
+    }
+
+    public void setListaDesgaste(List<Double> listaDesgaste) {
+        this.listaDesgaste = listaDesgaste;
+    }
+
+    public int getMaxFila() {
+        return maxFila;
+    }
+
+    public void setMaxFila(int maxFila) {
+        this.maxFila = maxFila;
+    }
+
+    public int getMinFila() {
+        return minFila;
+    }
+
+    public void setMinFila(int minFila) {
+        this.minFila = minFila;
+    }
     
 
     

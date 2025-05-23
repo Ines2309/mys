@@ -26,4 +26,8 @@ public class Ejecucion {
         this.bootstraping.run();
         this.estadisticaTotal = new EstadisticaTotal(bootstraping);
     }
+
+    public EstadisticaTotal getEstadisticaTotal() {
+        return estadisticaTotal;
+    }
 }
