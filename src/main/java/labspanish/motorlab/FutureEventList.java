@@ -4,18 +4,19 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import labspanish.Entidad;
+import labspanish.utilidades.Ordenador;
 
 
 
 public class FutureEventList {
 
     private List<Evento> fel;
-    private Comparator<Evento> comparador;
+    private Ordenador ordenador = new Ordenador();
 
     
-    public FutureEventList(Comparator<Evento> comparador) {
+    public FutureEventList() {
         this.fel = new ArrayList<Evento>(); //FIJARSE SI ES EL CONSTRUCTOR CORRECTO
-        this.comparador = comparador;
+        ;
     }
 
     public void inicializar(double tiempoFin) {
@@ -36,7 +37,7 @@ public class FutureEventList {
     
     public void insertar(Evento evento) {
         fel.add(evento);
-        fel.sort(comparador);
+        fel.sort(ordenador);
     }
     
     @Override

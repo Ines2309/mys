@@ -14,13 +14,12 @@ public class Bootstraping {
     private Politica politica;
     private EstadisticaEspera espera;
 
-    public Bootstraping(double tiempoDeSimulacion, RandomMath random, FutureEventList fel,
-     Politica politica, EstadisticaEspera espera) {
+    public Bootstraping(double tiempoDeSimulacion, List<Servidor> servidores) {
         this.tiempoDeSimulacion = tiempoDeSimulacion;
-        this.random = random;
-        this.fel = fel;
-        this.politica = politica;
-        this.espera = espera;
+        this.random = new RandomMath();
+        this.fel = new FutureEventList();
+        this.politica = new Politica(servidores);
+        this.espera = new EstadisticaEspera(tiempoDeSimulacion);
     } 
     
 
