@@ -13,7 +13,7 @@ public class EstadisticaTotal {
     private int maxFila;
     private int minFila;
  
-
+    /* */
     public EstadisticaTotal(Bootstraping bs) {
         this.ocio = bs.getPolitica().getEstadisticasOcio(); 
         this.espera = bs.getEspera();
@@ -62,6 +62,7 @@ public class EstadisticaTotal {
         this.minFila = minFila;
     }
     
+
 
     
 }

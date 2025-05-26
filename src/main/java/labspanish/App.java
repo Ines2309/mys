@@ -3,16 +3,8 @@ package labspanish;
 import java.util.ArrayList;
 import java.util.List;
 
-import labspanish.motorlab.Bootstraping;
-import labspanish.motorlab.FutureEventList;
-import labspanish.motorlab.Servidor;
 import labspanish.utilidades.Ejecucion;
-import labspanish.utilidades.EstadisticaEspera;
-import labspanish.utilidades.EstadisticaOcio;
-import labspanish.utilidades.EstadisticaTotal;
-import labspanish.utilidades.Ordenador;
-import labspanish.utilidades.Politica;
-import labspanish.utilidades.RandomMath;
+import labspanish.utilidades.Intervalo;
 import labspanish.utilidades.ReplicacionDeEjecuciones;
 
 
@@ -33,7 +25,46 @@ public class App
             ejecuciones.add(ejecucion);
         }
 
+        ReplicacionDeEjecuciones replicacion = new ReplicacionDeEjecuciones(ejecuciones);
+
+        Intervalo esperaMedia = replicacion.estadisticaEsperaMedia();
+        Intervalo esperaMinima = replicacion.estadisticaEsperaMin();
+        Intervalo esperaMaxima =  replicacion.estadisticaEsperaMax();
+        Intervalo esperaTotal = replicacion.estadisticaEsperaTotal();
+        Intervalo minFila = replicacion.estadisticaMinFila();
+        Intervalo maxFila = replicacion.estadisticaMaxFila();
+
+        List<Intervalo> ocioMedia = new ArrayList<>();
+        int cant= replicacion.getTamaño();
+        for(int i=0; i<cant; i++){
+            ocioMedia.add(replicacion.estadisticaOsciomedia(i));
+        }
         
+        List<Intervalo> ocioMin = new ArrayList<>();
+        for(int i=0; i<cant; i++){
+            ocioMin.add(replicacion.estadisticaOcioMin(i));
+        }   
+
+        List<Intervalo> ocioMax = new ArrayList<>();
+        for(int i=0; i<cant; i++){
+            ocioMax.add(replicacion.estadisticaOcioMax(i));
+        }
+
+        List<Intervalo> ocioTotal = new ArrayList<>();
+        for(int i=0; i<cant; i++){
+            ocioTotal.add(replicacion.estadisticaOcioTotal(i));
+        }
+
+        List<Intervalo> desgastes = new ArrayList<>();
+        for(int i=0; i<cant; i++){
+            desgastes.add(replicacion.estadisticaDesgasteMedia(i));
+        }
+
+        //Mostrar resultados 
+        System.out.println("Resultados de la replicación de ejecuciones:");
+        System.out.println("Tiempo de simulación: " + tiempoSimulacion);
+        System.out.println("Estadísticas de espera:");
+
 
         
     }

@@ -30,4 +30,8 @@ public class Ejecucion {
     public EstadisticaTotal getEstadisticaTotal() {
         return estadisticaTotal;
     }
+   public int getTamañoList(){
+    return servidores.size();
+   }
+  
 }
