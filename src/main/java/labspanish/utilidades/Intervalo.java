@@ -24,7 +24,7 @@ public class Intervalo {
     
     @Override
     public String toString() {
-        return "[" + inicio + ", " + fin + "]";
+        return "[" + String.format("%.2f", inicio) + " , " + String.format("%.2f", fin) + "]";
     }
 
 }

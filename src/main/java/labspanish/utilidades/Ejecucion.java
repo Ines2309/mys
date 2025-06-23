@@ -1,5 +1,6 @@
 package labspanish.utilidades;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import labspanish.motorlab.Bootstraping;
@@ -11,17 +12,14 @@ public class Ejecucion {
     private Bootstraping bootstraping;
     private EstadisticaTotal estadisticaTotal;
 
-    public Ejecucion(double tiempoSimulacion) {
-        Servidor pista1 = new Servidor(1,tiempoSimulacion);
-        Servidor pista2 = new Servidor(2,tiempoSimulacion);
-        Servidor pista3 = new Servidor(3,tiempoSimulacion);
-        Servidor pista4 = new Servidor(4,tiempoSimulacion);
-        Servidor pista5 = new Servidor(5,tiempoSimulacion);
-        servidores.add(pista1);
-        servidores.add(pista2);
-        servidores.add(pista3);
-        servidores.add(pista4);
-        servidores.add(pista5);
+    public Ejecucion(double tiempoSimulacion, int cantidadServidores) {
+        this.servidores = new ArrayList<Servidor>();
+        Servidor pista= null;
+        for (int i = 1; i <= cantidadServidores; i++) {
+            pista = new Servidor(i, tiempoSimulacion);
+            servidores.add(pista);
+        }
+
         this.bootstraping = new Bootstraping(tiempoSimulacion, servidores);
         this.bootstraping.run();
         this.estadisticaTotal = new EstadisticaTotal(bootstraping);

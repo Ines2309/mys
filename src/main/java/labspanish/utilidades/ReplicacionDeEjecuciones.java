@@ -8,13 +8,13 @@ import java.util.List;
 public class ReplicacionDeEjecuciones {
     private List<Ejecucion> ejecuciones;
     
-
-   public int getTamaño(){
-         return ejecuciones.get(0).getTamañoList();
-   }
     public ReplicacionDeEjecuciones(List<Ejecucion> ejecuciones) {
         this.ejecuciones = ejecuciones;
     }
+
+    public int getTamaño(){
+         return ejecuciones.get(0).getTamañoList();
+   }
 
     public static Intervalo estimarIntervalos(List<Double> ejecuciones) {
 
@@ -86,23 +86,23 @@ public class ReplicacionDeEjecuciones {
     }
 
     public Intervalo estadisticaMaxFila() {
-        List<Integer> maxFilas = new ArrayList<>();
+        List<Double> maxFilas = new ArrayList<>();
         
         for (Ejecucion ejecucion : ejecuciones) {
-            maxFilas.add(ejecucion.getEstadisticaTotal().getMaxFila());
+            maxFilas.add(ejecucion.getEstadisticaTotal().getMaxFila()*1.0);
         }
         
-        return estimarIntervalos(maxFilas.stream().mapToDouble(Integer::doubleValue).boxed().toList());
+        return estimarIntervalos(maxFilas);
     }
 
     public Intervalo estadisticaMinFila() {
-        List<Integer> minFilas = new ArrayList<>();
+        List<Double> minFilas = new ArrayList<>();
         
         for (Ejecucion ejecucion : ejecuciones) {
-            minFilas.add(ejecucion.getEstadisticaTotal().getMinFila());
+            minFilas.add(ejecucion.getEstadisticaTotal().getMinFila()*1.0);
         }
         
-        return estimarIntervalos(minFilas.stream().mapToDouble(Integer::doubleValue).boxed().toList());
+        return estimarIntervalos(minFilas);
     }
     public Intervalo estadisticaEsperaMax(){
         List<Double> maxEspera = new ArrayList<>();
