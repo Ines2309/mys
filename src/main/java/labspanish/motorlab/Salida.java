@@ -85,8 +85,8 @@ public class Salida extends Evento {
         }
         
         Normal normal = new Normal(5, 1, distribucionUniforme);
-        
-        servidor.setDesgaste(normal.getTiempoConvolucion(variables, mediaConvolucion, desviacionConvolucion));
+        Double desgaste=normal.getTiempoConvolucion(variables, mediaConvolucion, desviacionConvolucion);
+        servidor.setDesgaste(desgaste);
 
         // normal (desgaste)
         //servidor.setDesgaste();
