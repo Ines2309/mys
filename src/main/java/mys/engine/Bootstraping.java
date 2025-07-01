@@ -7,7 +7,8 @@ import mys.estadisticas.EstadisticaOcio;
 import mys.mypolitics.Politica;
 import mys.numerosaleatorios.RandomMath;
 import mys.utilidades.Distribucion;
-import mys.utilidades.Mysqueue;
+import mys.utilidades.MyqueuePriority;
+
 
 public class Bootstraping {
     private double tiempoDeSimulacion; 
@@ -17,7 +18,7 @@ public class Bootstraping {
     private EstadisticaEspera espera; 
     private Distribucion distribucionArribo;
     private Distribucion distribucionSalida;
-    private Mysqueue queue; 
+    private MyqueuePriority queue; 
 
     public Bootstraping(double tiempoDeSimulacion, List<Servidor> servidores, Distribucion arribos, Distribucion salida) {
         this.tiempoDeSimulacion = tiempoDeSimulacion;

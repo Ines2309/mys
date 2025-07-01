@@ -5,13 +5,12 @@ import java.util.List;
 
 import mys.engine.Entida;
 
-public final class Mysqueue implements Queue {
-    
-    private  List<Entida> entidades; 
+public class MyqueuePriority implements Queue {
+ private  List<Entida> entidades; 
     private int cantMax;
     private int cantMin;
 
-    public Mysqueue(){
+    public MyqueuePriority(){
         entidades = new ArrayList<Entida>();
         cantMax = 0;
         cantMin = 0;
@@ -19,10 +18,13 @@ public final class Mysqueue implements Queue {
 
     @Override
     public void enqueue(Entida entidad) {
-        
+        if(entidad.getPriority()==3){
+            this.entidades.add(0,entidad);
+           
+        }else{
         this.entidades.add(entidad); 
         this.cantidades();
-        
+        }
     }
 
     @Override

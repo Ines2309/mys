@@ -1,7 +1,8 @@
 package mys.engine;
 
 import mys.estadisticas.EstadisticaOcio;
-import mys.utilidades.Mysqueue;
+import mys.utilidades.MyqueuePriority;
+
 
 public class Servidor {
     
@@ -9,7 +10,7 @@ public class Servidor {
     private boolean busy;
     private double clockSalida;
     private EstadisticaOcio estadisticaOcio;
-    private Mysqueue fila; //x no quiero que cada servidor tenga su propia fila, sino que se maneje una sola fila de espera
+    private MyqueuePriority fila; //x no quiero que cada servidor tenga su propia fila, sino que se maneje una sola fila de espera
     private int desgaste;
     
     
@@ -18,11 +19,11 @@ public class Servidor {
         this.busy = false;
         this.clockSalida=0.0;
         this.estadisticaOcio= new EstadisticaOcio(tiempoDeSimulacion);
-        this.fila = new Mysqueue();
+        this.fila = new MyqueuePriority(); 
         this.desgaste=3000;
     }
 
-    public Servidor(int id, double tiempoDeSimulacion, Mysqueue queue) {
+    public Servidor(int id, double tiempoDeSimulacion, MyqueuePriority queue) {
         this.id = id;
         this.busy = false;
         this.clockSalida=0.0;
@@ -64,11 +65,11 @@ public class Servidor {
         this.busy = busy;
     }
      
-    public void setFila(Mysqueue fila) {
+    public void setFila(MyqueuePriority fila) {
         this.fila = fila;
     }
 
-    public Mysqueue getFila() {
+    public  MyqueuePriority getFila() {
         return fila;
     }
 

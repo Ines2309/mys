@@ -16,7 +16,7 @@ public class Ejecucion {
     public Ejecucion(double tiempoSimulacion, int cantidadServidores,Distribucion distribucionArribo, Distribucion distribucionSalida) {
         this.servidores = new ArrayList<Servidor>();
         Servidor pista= null;
-        Mysqueue cola = new Mysqueue();
+        MyqueuePriority cola = new MyqueuePriority();
         for (int i = 1; i <= cantidadServidores; i++) {
             pista = new Servidor(i, tiempoSimulacion, cola); //Ahora asigna una misma cola para los 5 servidores
             servidores.add(pista);

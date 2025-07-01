@@ -70,6 +70,7 @@ public class App
         for(int i=0; i<cantidadServidores; i++){
             desgastes.add(replicacion.estadisticaDesgasteMedia(i));
         }
+        
 
         
 

@@ -1,6 +1,7 @@
 package mys.engine;
 
 
+import mys.distribuciones.DistribucionPriority;
 import mys.estadisticas.EstadisticaEspera;
 import mys.estadisticas.EstadisticaOcio;
 import mys.mypolitics.Politica;
@@ -8,13 +9,14 @@ import mys.numerosaleatorios.RandomMath;
 import mys.utilidades.Distribucion;
 
 public class Arribo extends Evento{
-    private Distribucion distrucionSalida;
-    
+   private Distribucion distrucionSalida;
+   private DistribucionPriority distribucionPriority;
 
 
     public Arribo(Entida entidad, double clock, Distribucion distribucion, Distribucion distribucionSalida) {
         super(entidad, clock, 1.0, distribucion);
         this.distrucionSalida=distribucionSalida;
+        this.distribucionPriority = new DistribucionPriority(); // Inicializo la distribucion de prioridad
     }
 
        //set estado de servidor lo utilizamos para actualizar la informacion del servidor ya que trabajamos con la copia
@@ -61,7 +63,8 @@ public class Arribo extends Evento{
         
         Distribucion distribucionArribo = getDistribucion().comprobarHora(this.getClock()); //this.clock esta en horas
         setDistribucion(distribucionArribo);
-        Entida evento = new Entida(this.getEntidad().getIdentificador()+1);
+        Entida evento = new Entida(this.getEntidad().getIdentificador() + 1, distribucionPriority.getTiempo(ramdom.tirarRandom()));
+        
         Arribo arribo = new Arribo(evento, this.getClock()+getDistribucion().getTiempo(ramdom.tirarRandom()), getDistribucion(), distrucionSalida);
         fel.insertar(arribo);
         

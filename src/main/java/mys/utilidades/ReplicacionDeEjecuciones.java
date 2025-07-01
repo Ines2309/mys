@@ -193,6 +193,7 @@ public class ReplicacionDeEjecuciones {
         }
         return estimarIntervalos(resultados);
     }
+    
 
     
 }

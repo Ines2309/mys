@@ -23,7 +23,7 @@ public class FutureEventList {
 
     public void inicializar(double tiempoFin) {
         FinSimulacion fin = new FinSimulacion(tiempoFin, distribucion);
-        Entida entidadInicial = new Entida(1);
+        Entida entidadInicial = new Entida(1,2.0); // 2.0 es la prioridad normal
         Arribo inicial = new Arribo(entidadInicial, 0,distribucion, distibucion2);
         insertar(fin);
         insertar(inicial);

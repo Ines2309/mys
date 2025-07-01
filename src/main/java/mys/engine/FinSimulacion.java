@@ -7,7 +7,7 @@ import mys.utilidades.Distribucion;
 
 public class FinSimulacion extends Evento {
      public FinSimulacion(double findeSimulacion,Distribucion distribucion) {
-        super(new Entida(-1), findeSimulacion, 0.5,distribucion);  //la simualcion termina en el tiempo 60
+        super(new Entida(-1,2.0), findeSimulacion, 0.5,distribucion);  //la simualcion termina en el tiempo 60
 
     }
 
