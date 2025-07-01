@@ -1,33 +1,32 @@
-package labspanish.utilidades;
+package mys.utilidades;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import labspanish.Entidad;
-import labspanish.motorlab.Queue;
+import mys.engine.Entida;
 
 public final class Mysqueue implements Queue {
-
-    private  List<Entidad> entidades; 
+    
+    private  List<Entida> entidades; 
     private int cantMax;
     private int cantMin;
 
     public Mysqueue(){
-        entidades = new ArrayList<Entidad>();
+        entidades = new ArrayList<Entida>();
         cantMax = 0;
         cantMin = 0;
     }
 
     @Override
-    public void enqueue(Entidad entidad) {
+    public void enqueue(Entida entidad) {
         this.entidades.add(entidad); 
         this.cantidades();
         
     }
 
     @Override
-    public Entidad dequEntidad() {
-        Entidad entidad = this.entidades.remove(0);
+    public Entida dequEntidad() {
+        Entida entidad = this.entidades.remove(0);
         this.cantidades();
         return entidad;
     }
@@ -63,4 +62,5 @@ public final class Mysqueue implements Queue {
         return("+Largo maximo de fila de espera: " + cantMax +"\n+Largo minimo de fila de espera: " + cantMin + "\n");
     }
 
+    
 }

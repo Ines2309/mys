@@ -1,10 +1,10 @@
-package labspanish.utilidades;
+package mys.utilidades;
 
 import java.util.Comparator;
 
-import labspanish.motorlab.Evento;
+import mys.engine.Evento;
 
-public class Ordenador implements Comparator<Evento>{
+public class Ordenador implements Comparator<Evento> {
     @Override
     public int compare(Evento e1, Evento e2) {
 
@@ -24,4 +24,5 @@ public class Ordenador implements Comparator<Evento>{
             return 0;
         }
     }
+    
 }

@@ -1,15 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
-package labspanish.utilidades;
+package mys.utilidades;
 
-/**
- *
- * @author santi
- */
 public interface Randomizer {
     
-    public double tirarRandom();
+    public double tirarRandom(); // Devuelve un número aleatorio entre 0 y 1
     
 }

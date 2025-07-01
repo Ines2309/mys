@@ -1,6 +1,8 @@
-package labspanish.utilidades;
+package mys.estadisticas;
 
-public class EstadisticaEspera extends Estadistica{
+import mys.utilidades.Estadisticas;
+
+public class EstadisticaEspera extends Estadisticas {
     private double totalEspera;
     private double maxEspera;
     private double minEspera;
@@ -82,4 +84,6 @@ public class EstadisticaEspera extends Estadistica{
         sb.append("+------+\n");
         return sb.toString();
     }
+
+    
 }

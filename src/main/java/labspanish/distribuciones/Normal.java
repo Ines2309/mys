@@ -1,8 +1,8 @@
-package labspanish.distributions;
+package mys.distribuciones;
 
 import java.util.List;
 
-import labspanish.utilidades.Distribucion;
+import mys.utilidades.Distribucion;
 
 public class Normal extends Distribucion {
 
@@ -16,10 +16,10 @@ public class Normal extends Distribucion {
         this.varUniforme = new Uniforme(a, b);
     }
     
-    public Normal(double media, double desviacion, Uniforme uniforme) {
+    public Normal(double media, double desviacion, Distribucion uniforme) {
         this.mediaY = media;
         this.desviacionY = desviacion;
-        this.varUniforme = uniforme;
+        this.varUniforme = (Uniforme) uniforme;
     }
 
     @Override
@@ -67,6 +67,12 @@ public class Normal extends Distribucion {
 
     public void setVarUniforme(Uniforme varUniforme) {
         this.varUniforme = varUniforme;
+    }
+
+    @Override
+    public Distribucion comprobarHora(double clock) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'comprobarHora'");
     }
 
 }

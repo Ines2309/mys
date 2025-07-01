@@ -1,21 +1,20 @@
-package labspanish.motorlab;
+package mys.engine;
 
 import java.util.ArrayList;
 
-import labspanish.Entidad;
-import labspanish.distributions.Normal;
-import labspanish.distributions.Uniforme;
-import labspanish.utilidades.EstadisticaEspera;
-import labspanish.utilidades.Politica;
-import labspanish.utilidades.RandomMath;
+import mys.distribuciones.Normal;
+import mys.estadisticas.EstadisticaEspera;
+import mys.mypolitics.Politica;
+import mys.numerosaleatorios.RandomMath;
+import mys.utilidades.Distribucion;
 
-public class Salida extends Evento {
+public class Salida extends Evento{
 
-    final private Uniforme distribucionUniforme = new Uniforme(10, 25);
-    final private Servidor servidor;
+    
+    private Servidor servidor;
 
-    public Salida(Entidad entidad, double clock, Servidor servidor) {
-        super(entidad, clock, 0.0);
+    public Salida(Entida entidad, double clock, Servidor servidor, Distribucion distribucion) {
+        super(entidad, clock, 0.0, distribucion);
         this.servidor = servidor;
     }
      /*La distribución de probabilidades de la duración en el descenso de pasajeros, en minutos, se
@@ -30,8 +29,8 @@ public class Salida extends Evento {
             this.servidor.setBusy(false);
 
         } else {                                   //hay fila
-            Entidad entidad = servidor.extraerCola();
-            Salida salida = new Salida(entidad, getClock() + distribucionUniforme.getTiempo(ramdom.tirarRandom()), this.servidor);
+            Entida entidad = servidor.extraerCola();
+            Salida salida = new Salida(entidad, getClock() + getDistribucion().getTiempo(ramdom.tirarRandom()), this.servidor, getDistribucion());
             fel.insertar(salida);
             this.servidor.setBusy(true);
 
@@ -81,16 +80,16 @@ public class Salida extends Evento {
         ArrayList<Double> variables = new ArrayList<>(); //correcion de la lista de variables
 
         for (int i = 0; i < 20; i++) {
-            variables.add(distribucionUniforme.getTiempo(ramdom.tirarRandom()));
+            variables.add(getDistribucion().getTiempo(ramdom.tirarRandom()));
         }
         
-        Normal normal = new Normal(5, 1, distribucionUniforme);
+        Normal normal = new Normal(5, 1, getDistribucion());// esta era uniforme
         Double desgaste=normal.getTiempoConvolucion(variables, mediaConvolucion, desviacionConvolucion);
         servidor.setDesgaste(desgaste);
 
         // normal (desgaste)
         //servidor.setDesgaste();
-    }
+    } 
 
-    //controlar servidor 
+    
 }

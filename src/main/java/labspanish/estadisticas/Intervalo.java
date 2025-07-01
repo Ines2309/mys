@@ -1,8 +1,8 @@
-package labspanish.utilidades;
+package mys.estadisticas;
 
 public class Intervalo {
     
-    private double inicio;
+     private double inicio;
     private double fin;
     
     public Intervalo(double inicio, double fin) {
@@ -20,6 +20,9 @@ public class Intervalo {
     
     public boolean contiene(double valor) {
         return valor >= inicio && valor <= fin;
+    }
+    public String mediaIntervalo() {
+        return ("Media:" + String.format("%.2f",((inicio + fin) / 2 )) + "\n");
     }
     
     @Override

@@ -1,16 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package labspanish.utilidades;
+package mys.distribuciones;
 
-/**
- *
- * @author santi
- */
-public class DistribucionArribo extends Distribucion{
+import mys.utilidades.Distribucion;
 
-    @Override
+public class DistribucionArribo extends Distribucion {
+       @Override
     public double getProbabilidad(double event) {
         if(event == 10){
             return 0.35;
@@ -38,5 +31,13 @@ public class DistribucionArribo extends Distribucion{
             return 17;
         }
     }
+
+
+    @Override
+    public Distribucion comprobarHora(double clock) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'comprobarHora'");
+    }
+    
     
 }

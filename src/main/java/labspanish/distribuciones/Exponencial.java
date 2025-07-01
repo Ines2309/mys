@@ -1,13 +1,11 @@
-package labspanish.distributions;
+package mys.distribuciones;
 
-import labspanish.utilidades.Distribucion;
-//exponencial 
-public class Exponecial extends Distribucion{
-    
+import mys.utilidades.Distribucion;
+
+public class Exponencial extends Distribucion {
     public double lambda;
     
-    public Exponecial(double mu) {
-        
+    public Exponencial(double mu) { 
         super();
         this.mediaDistribucion = mu;
         this.lambda = 1/mu;
@@ -17,15 +15,16 @@ public class Exponecial extends Distribucion{
     @Override
     public double getProbabilidad(double tiempo) {
         return 1 - Math.exp(-lambda*tiempo);
+        
     }
 
     @Override
     public double getTiempo(double probabilidad) {
         return (-1/lambda)*(Math.log(1-probabilidad));
     }
-     //revisar funcion 
+     
     
-     public void comprobarHora(double clockactual){
+     public Distribucion comprobarHora(double clockactual){
 
         double clock =clockactual;
         while(clock>=1440){
@@ -36,9 +35,9 @@ public class Exponecial extends Distribucion{
         }else{
             lambda=1.0/15;
         }
+        return this;
     }
       
+
+    
 }
-    
-    
-    

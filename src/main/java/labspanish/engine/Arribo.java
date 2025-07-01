@@ -1,25 +1,20 @@
-package labspanish.motorlab;
+package mys.engine;
 
 
+import mys.estadisticas.EstadisticaEspera;
+import mys.estadisticas.EstadisticaOcio;
+import mys.mypolitics.Politica;
+import mys.numerosaleatorios.RandomMath;
+import mys.utilidades.Distribucion;
 
-import labspanish.Entidad;
-import labspanish.distributions.Exponecial;
-import labspanish.distributions.Uniforme;
-import labspanish.utilidades.EstadisticaEspera;
-import labspanish.utilidades.EstadisticaOcio;
-import labspanish.utilidades.Politica;
-import labspanish.utilidades.RandomMath;
-
-public class Arribo extends Evento {
-
-    private Exponecial distribucion;  
-    private Uniforme distribucionSalida;
+public class Arribo extends Evento{
+    private Distribucion distrucionSalida;
+    
 
 
-    public Arribo(Entidad entidad, double clock) {
-        super(entidad, clock, 1.0);
-        distribucion = new Exponecial(15);
-        distribucionSalida = new Uniforme(10, 25);
+    public Arribo(Entida entidad, double clock, Distribucion distribucion, Distribucion distribucionSalida) {
+        super(entidad, clock, 1.0, distribucion);
+        this.distrucionSalida=distribucionSalida;
     }
 
        //set estado de servidor lo utilizamos para actualizar la informacion del servidor ya que trabajamos con la copia
@@ -29,12 +24,12 @@ public class Arribo extends Evento {
        // double tiempoEntreArribos=0;
         Servidor servidor= politica.getServidor(); //Me devuelve un servidor desocupado segun la politica
 
-        Entidad entidad = this.getEntidad();
+        Entida entidad = this.getEntidad();
         entidad.setClockArribo(this.getClock());
 
         if(!servidor.isBusy()){ //Me devuelve un servidor desocupado
             servidor.setBusy(true);  
-            Salida planDesalida = new Salida(entidad,distribucionSalida.getTiempo(ramdom.tirarRandom())+this.getClock(), servidor);
+            Salida planDesalida = new Salida(entidad, distrucionSalida.getTiempo(ramdom.tirarRandom()) + this.getClock(), servidor, distrucionSalida);
             fel.insertar(planDesalida);
 
             // calcular ocio de este servidor
@@ -64,9 +59,10 @@ public class Arribo extends Evento {
         politica.setEstadoServiodor(servidor); //servidor es una copia, no una refersncia
         //Planifico el siguiente arrivo
         
-        distribucion.comprobarHora(this.getClock()); //this.clock esta en horas
-        Entidad evento = new Entidad(this.getEntidad().getIdentificador()+1);
-        Arribo arribo = new Arribo(evento, this.getClock()+distribucion.getTiempo(ramdom.tirarRandom()));
+        Distribucion distribucionArribo = getDistribucion().comprobarHora(this.getClock()); //this.clock esta en horas
+        setDistribucion(distribucionArribo);
+        Entida evento = new Entida(this.getEntidad().getIdentificador()+1);
+        Arribo arribo = new Arribo(evento, this.getClock()+getDistribucion().getTiempo(ramdom.tirarRandom()), getDistribucion(), distrucionSalida);
         fel.insertar(arribo);
         
         return true;
@@ -76,11 +72,5 @@ public class Arribo extends Evento {
     public void aplicarEfectoSecundario(RandomMath ramdom) {
         //no se aplica ningun efecto secundario, ya que es el arribo
     }
-      
-
-    
-    
-
-    
     
 }

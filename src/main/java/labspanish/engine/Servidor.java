@@ -1,16 +1,17 @@
-package labspanish.motorlab;
+package mys.engine;
 
-import labspanish.Entidad;
-import labspanish.utilidades.EstadisticaOcio;
-import labspanish.utilidades.Mysqueue;
+import mys.estadisticas.EstadisticaOcio;
+import mys.utilidades.Mysqueue;
 
 public class Servidor {
+    
     private int id; 
     private boolean busy;
     private double clockSalida;
     private EstadisticaOcio estadisticaOcio;
-    private Mysqueue fila;
+    private Mysqueue fila; //x no quiero que cada servidor tenga su propia fila, sino que se maneje una sola fila de espera
     private int desgaste;
+    
     
     public Servidor(int id, double tiempoDeSimulacion) {
         this.id = id;
@@ -18,6 +19,15 @@ public class Servidor {
         this.clockSalida=0.0;
         this.estadisticaOcio= new EstadisticaOcio(tiempoDeSimulacion);
         this.fila = new Mysqueue();
+        this.desgaste=3000;
+    }
+
+    public Servidor(int id, double tiempoDeSimulacion, Mysqueue queue) {
+        this.id = id;
+        this.busy = false;
+        this.clockSalida=0.0;
+        this.estadisticaOcio= new EstadisticaOcio(tiempoDeSimulacion);
+        this.fila = queue;
         this.desgaste=3000;
     }
 
@@ -62,11 +72,11 @@ public class Servidor {
         return fila;
     }
 
-    public void ponerEnCola(Entidad entidad) { // poner en la fila de espera 
+    public void ponerEnCola(Entida entidad) { // poner en la fila de espera 
         fila.enqueue(entidad);
      }
  
-     public Entidad extraerCola(){
+     public Entida extraerCola(){
          return fila.dequEntidad();
      }
    
@@ -82,6 +92,5 @@ public class Servidor {
     public String mostrarDesgasteString(){
         return ("+Desgaste del servidor \""+this.id+ "\" : "+ this.desgaste + "\n");
     }
-
     
 }

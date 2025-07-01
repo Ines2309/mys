@@ -1,7 +1,7 @@
-package labspanish.utilidades;
+package mys.utilidades;
 
 public abstract class Distribucion {
-
+    
     public double mediaDistribucion;
     public double desviacionDistribucion;
     
@@ -12,6 +12,7 @@ public abstract class Distribucion {
         this.desviacionDistribucion=desviacion;
     }
     abstract public double getProbabilidad(double Evento);
-    abstract public double getTiempo(double acumulativo); 
+    abstract public double getTiempo(double acumulativo);
+    public abstract Distribucion comprobarHora(double clock); 
     
 }

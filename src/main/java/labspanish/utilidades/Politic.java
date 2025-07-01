@@ -1,8 +1,7 @@
-package labspanish.utilidades;
+package mys.utilidades;
 
-import labspanish.motorlab.Servidor;
+import mys.engine.Servidor;
 
 public interface Politic {
-    
     Servidor getServidor();
 }

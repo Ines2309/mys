@@ -1,28 +1,30 @@
-package labspanish.motorlab;
+package mys.engine;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-import labspanish.Entidad;
-import labspanish.utilidades.Ordenador;
 
-
+import mys.utilidades.Distribucion;
+import mys.utilidades.Ordenador;
 
 public class FutureEventList {
-
-    private List<Evento> fel;
+     private List<Evento> fel;
     private Ordenador ordenador = new Ordenador();
+    private Distribucion distribucion;
+    private Distribucion distibucion2;
 
     
-    public FutureEventList() {
+    public FutureEventList(Distribucion distribucion,Distribucion distibucion2) {
+        super();
         this.fel = new ArrayList<Evento>(); //FIJARSE SI ES EL CONSTRUCTOR CORRECTO
+        this.distribucion = distribucion;
+        this.distibucion2 = distibucion2;
         
     }
 
     public void inicializar(double tiempoFin) {
-        FinSimulacion fin = new FinSimulacion(tiempoFin);
-        Entidad entidadInicial = new Entidad(1);
-        Arribo inicial = new Arribo(entidadInicial, 0);
+        FinSimulacion fin = new FinSimulacion(tiempoFin, distribucion);
+        Entida entidadInicial = new Entida(1);
+        Arribo inicial = new Arribo(entidadInicial, 0,distribucion, distibucion2);
         insertar(fin);
         insertar(inicial);
     }
@@ -51,4 +53,5 @@ public class FutureEventList {
           return output +="**************************************";
 
         }
+    
 }

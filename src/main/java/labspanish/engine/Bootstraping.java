@@ -1,30 +1,35 @@
-package labspanish.motorlab;
+package mys.engine;
 
 import java.util.List;
 
-import labspanish.utilidades.EstadisticaEspera;
-import labspanish.utilidades.EstadisticaOcio;
-import labspanish.utilidades.Politica;
-import labspanish.utilidades.RandomMath;
+import mys.estadisticas.EstadisticaEspera;
+import mys.estadisticas.EstadisticaOcio;
+import mys.mypolitics.Politica;
+import mys.numerosaleatorios.RandomMath;
+import mys.utilidades.Distribucion;
+import mys.utilidades.Mysqueue;
 
 public class Bootstraping {
     private double tiempoDeSimulacion; 
     private RandomMath random; 
-    private FutureEventList fel; 
+    private FutureEventList fel;
     private Politica politica;
-    private EstadisticaEspera espera;
+    private EstadisticaEspera espera; 
+    private Distribucion distribucionArribo;
+    private Distribucion distribucionSalida;
+    private Mysqueue queue; 
 
-    public Bootstraping(double tiempoDeSimulacion, List<Servidor> servidores) {
+    public Bootstraping(double tiempoDeSimulacion, List<Servidor> servidores, Distribucion arribos, Distribucion salida) {
         this.tiempoDeSimulacion = tiempoDeSimulacion;
         this.random = new RandomMath();
-        this.fel = new FutureEventList();
+        this.fel = new FutureEventList(arribos, salida);
         this.politica = new Politica(servidores);
         this.espera = new EstadisticaEspera(tiempoDeSimulacion);
-    } 
-    
+        this.distribucionArribo = arribos;
+        this.distribucionSalida = salida;
+    }
 
     public void run(){
-        
         this.fel.inicializar(tiempoDeSimulacion);
         Evento evento; 
         double clock = 0;
@@ -34,7 +39,7 @@ public class Bootstraping {
         int cantidadAterrizaje=0;
         
         while(clock < tiempoDeSimulacion){  // no esta arribando
-            System.out.println(fel.toString());
+         //   System.out.println(fel.toString());
             evento = this.fel.inminente();
             ejecutaArribo=evento.planificar(this.random, this.fel, this.politica,this.espera);
             //actualizo estadisticas por si acaso tienen valores distintos
@@ -82,6 +87,5 @@ public class Bootstraping {
     public FutureEventList getFel() {
         return fel;
     }
+    
 }
-
-

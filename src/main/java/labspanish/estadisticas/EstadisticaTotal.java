@@ -1,12 +1,11 @@
-package labspanish.utilidades;
+package mys.estadisticas;
 
 import java.util.List;
 
-import labspanish.motorlab.Bootstraping;
-
-// es utilizado para almacenar la informacion de 1 bootstraping 
+import mys.engine.Bootstraping;
 
 public class EstadisticaTotal {
+    
     private List<EstadisticaOcio> ocio; //porque tenemos mas de un servidor con sus respectivas estadisticas 
     private EstadisticaEspera espera;
     private List<Double> listaDesgaste; //porque tenemos mas de un servidor con sus respectivos desgastes

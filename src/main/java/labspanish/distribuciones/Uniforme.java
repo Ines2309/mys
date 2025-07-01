@@ -1,7 +1,6 @@
-package labspanish.distributions;
+package mys.distribuciones;
 
-import labspanish.utilidades.Distribucion;
-
+import mys.utilidades.Distribucion;
 
 public class Uniforme extends Distribucion {
     public double a;
@@ -32,6 +31,14 @@ public class Uniforme extends Distribucion {
     public double getTiempo(double probabilidad) {
             return a+((b-a)*probabilidad);
       
+    }
+
+
+
+    @Override
+    public Distribucion comprobarHora(double clock) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'comprobarHora'");
     }
 
     

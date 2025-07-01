@@ -1,7 +1,8 @@
-package labspanish.utilidades;
+package mys.distribuciones;
 
-public class DistribucionSalida extends Distribucion{
+import mys.utilidades.Distribucion;
 
+public class DistribucionSalida extends Distribucion {
     @Override
     public double getProbabilidad(double event) {
         if(event == 8){
@@ -37,4 +38,10 @@ public class DistribucionSalida extends Distribucion{
         }
     }
 
+    @Override
+    public Distribucion comprobarHora(double clock) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'comprobarHora'");
+    }
+    
 }

@@ -1,22 +1,22 @@
-package labspanish.utilidades;
+package mys.mypolitics;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import labspanish.motorlab.Servidor;
+import mys.engine.Servidor;
+import mys.estadisticas.EstadisticaOcio;
+import mys.utilidades.Politic;
 
 public class Politica implements Politic {
-
-    // Atributos
-    private List<Servidor> servidores; // Lista de servidores 
+      private List<Servidor> servidores; // Lista de servidores 
 
     public Politica(List<Servidor> servidores) {
         this.servidores = servidores;
     }
 
     @Override
-    public Servidor getServidor() { 
-        Servidor servidor= null; //por defecto el primero
+    public Servidor getServidor(){
+        Servidor servidor= null; 
         for (Servidor s : servidores) {
             if (!s.isBusy()) {    
                  servidor=s;   
@@ -24,7 +24,7 @@ public class Politica implements Politic {
             }
         }
         if(servidor==null){
-            servidor = servidores.get(0);
+            servidor = servidores.get(0); //por defecto el primero
             for(Servidor s : servidores){
                if(s.getFila().size() < servidor.getFila().size() ){
                 servidor= s;
@@ -110,4 +110,6 @@ public class Politica implements Politic {
         }
         return listaDesgaste;
     }
+
+    
 }

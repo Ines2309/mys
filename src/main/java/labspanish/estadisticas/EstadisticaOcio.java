@@ -1,7 +1,9 @@
-package labspanish.utilidades;
+package mys.estadisticas;
 
-public class EstadisticaOcio extends Estadistica{
-    private double totalOcio;
+import mys.utilidades.Estadisticas;
+
+public class EstadisticaOcio extends Estadisticas {
+      private double totalOcio;
     private double maxOcio;
     private double minOcio;
     
@@ -46,4 +48,5 @@ public class EstadisticaOcio extends Estadistica{
         sb.append("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n");
         return sb.toString();
     }
+    
 }

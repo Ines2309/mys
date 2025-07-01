@@ -1,11 +1,11 @@
-package labspanish.utilidades;
+package mys.utilidades;
 
-public abstract class Estadistica {
+public abstract class Estadisticas {
     private int cantArribos;
     private int cantAterrizaje;
     private double tiempoDeSimulacion;
 
-    public Estadistica(double tiempoDeSimulacion){
+    public Estadisticas(double tiempoDeSimulacion){
         cantArribos = 0;
         cantAterrizaje = 0; 
         this.tiempoDeSimulacion = tiempoDeSimulacion;
@@ -46,7 +46,5 @@ public abstract class Estadistica {
     public void aumentarAterrizajes() {
         this.cantAterrizaje += 1;
     }
-
-
 
 }

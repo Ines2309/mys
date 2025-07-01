@@ -1,12 +1,15 @@
-package labspanish.utilidades;
+package mys.utilidades;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import mys.estadisticas.EstadisticaEspera;
+import mys.estadisticas.EstadisticaOcio;
+import mys.estadisticas.Intervalo;
 
 
 public class ReplicacionDeEjecuciones {
-    private List<Ejecucion> ejecuciones;
+     private List<Ejecucion> ejecuciones;
     
     public ReplicacionDeEjecuciones(List<Ejecucion> ejecuciones) {
         this.ejecuciones = ejecuciones;
@@ -164,5 +167,32 @@ public class ReplicacionDeEjecuciones {
         return estimarIntervalos(totalEspera);
     }
 
+   
+    public Intervalo estadisticaPromedioSalidas() {
+        List<Double> resultados = new ArrayList<>();
+        EstadisticaEspera espera;
 
+        for (Ejecucion ejecucion : ejecuciones) {
+            Double salidas = ejecucion.getEstadisticaTotal().getEspera().getCantAterrizaje() * 1.0;
+            resultados.add(salidas);
+        }
+        
+        return estimarIntervalos(resultados);
+    }
+
+    public Intervalo estadisticaPromedioArribos() {
+        List<Double> resultados = new ArrayList<>();
+        EstadisticaEspera espera;
+
+      
+        for (Ejecucion ejecucion : ejecuciones) {
+            //System.out.println("TESTING!!!!! Cantidad de arribos: " + ejecucion.getEstadisticaTotal().getEspera().getCantArribos());
+            Double arribos = ejecucion.getEstadisticaTotal().getEspera().getCantArribos() * 1.0;
+            
+            resultados.add(arribos);
+        }
+        return estimarIntervalos(resultados);
+    }
+
+    
 }
