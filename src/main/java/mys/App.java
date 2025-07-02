@@ -44,6 +44,7 @@ public class App
         Intervalo maxFila = replicacion.estadisticaMaxFila();
         Intervalo promedioArribos = replicacion.estadisticaPromedioArribos();
         Intervalo promedioSalidas = replicacion.estadisticaPromedioSalidas();
+        Intervalo tiempoEnSistema = replicacion.estadisticaTiempoEnSistema();
 
         List<Intervalo> ocioMedia = new ArrayList<>();
 
@@ -81,6 +82,7 @@ public class App
         System.out.println("Tiempo de simulación: " + tiempoSimulacion + " minutos.        Cantidad de ejecuciones: " + cantidadEjecuciones);
         System.out.println("Cantidad de Arribos:"+ promedioArribos.toString() + " "+ promedioArribos.mediaIntervalo());
         System.out.println("Cantidad de Salidas:"+ promedioSalidas.toString()+""+ promedioSalidas.mediaIntervalo());
+        System.out.println("Tiempo promedio en el sistema: " + tiempoEnSistema.toString()+" "+ tiempoEnSistema.mediaIntervalo());
         System.out.println("-----------------------------Estadísticas de espera:-----------------------------------");
         System.err.println("Media de espera: " + esperaMedia.toString()+" "+ esperaMedia.mediaIntervalo());
         System.err.println("Mínima de espera: " + esperaMinima.toString()+" "+ esperaMinima.mediaIntervalo());

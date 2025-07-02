@@ -194,6 +194,14 @@ public class ReplicacionDeEjecuciones {
         return estimarIntervalos(resultados);
     }
     
-
+     public Intervalo estadisticaTiempoEnSistema() {
+        List<Double> tiemposEnSistema = new ArrayList<>();
+        
+        for (Ejecucion ejecucion : ejecuciones) {
+            double tiempoEnSistema = ejecucion.getEstadisticaTotal().getEspera().getCantTotalSistema();
+            tiemposEnSistema.add(tiempoEnSistema);
+        }
+        
+        return estimarIntervalos(tiemposEnSistema);
     
-}
+}}
