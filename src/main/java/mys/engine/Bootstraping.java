@@ -28,6 +28,7 @@ public class Bootstraping {
         this.espera = new EstadisticaEspera(tiempoDeSimulacion);
         this.distribucionArribo = arribos;
         this.distribucionSalida = salida;
+        this.queue = new MyqueuePriority();
     }
 
     public void run(){
@@ -42,7 +43,7 @@ public class Bootstraping {
         while(clock < tiempoDeSimulacion){  // no esta arribando
          //   System.out.println(fel.toString());
             evento = this.fel.inminente();
-            ejecutaArribo=evento.planificar(this.random, this.fel, this.politica,this.espera);
+            ejecutaArribo=evento.planificar(random, fel, politica, espera, queue); //planifica el evento y devuelve si es un arribo o no
             //actualizo estadisticas por si acaso tienen valores distintos
 
             if(ejecutaArribo){
@@ -89,4 +90,8 @@ public class Bootstraping {
         return fel;
     }
     
+    public MyqueuePriority getQueue() {
+        return queue;
+    }
+
 }

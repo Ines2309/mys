@@ -4,6 +4,7 @@ import mys.estadisticas.EstadisticaEspera;
 import mys.mypolitics.Politica;
 import mys.numerosaleatorios.RandomMath;
 import mys.utilidades.Distribucion;
+import mys.utilidades.MyqueuePriority;
 
 public abstract class Evento {
     private Entida entidad;     
@@ -11,7 +12,7 @@ public abstract class Evento {
     private double  ordenDeEstado; // salida, arribo y fin de servicio  //1) arribo   0.5 fin de simulacion  0) salida // 
     private Distribucion distribucion;
 
-    public abstract boolean planificar(RandomMath ramdom, FutureEventList fel, Politica politica, EstadisticaEspera estadisticaEspera);
+    public abstract boolean planificar(RandomMath ramdom, FutureEventList fel, Politica politica, EstadisticaEspera estadisticaEspera, MyqueuePriority queue);
 
     public abstract void aplicarEfectoSecundario(RandomMath ramdom);
 

@@ -4,6 +4,7 @@ import mys.estadisticas.EstadisticaEspera;
 import mys.mypolitics.Politica;
 import mys.numerosaleatorios.RandomMath;
 import mys.utilidades.Distribucion;
+import mys.utilidades.MyqueuePriority;
 
 public class FinSimulacion extends Evento {
      public FinSimulacion(double findeSimulacion,Distribucion distribucion) {
@@ -12,7 +13,7 @@ public class FinSimulacion extends Evento {
     }
 
     @Override
-    public boolean planificar(RandomMath ramdom,FutureEventList fel, Politica politica, EstadisticaEspera estadist) {
+    public boolean planificar(RandomMath ramdom,FutureEventList fel, Politica politica, EstadisticaEspera estadist, MyqueuePriority queue) {
         // No se planifica nada, ya que es el fin de la simulacion
         return false;
     }

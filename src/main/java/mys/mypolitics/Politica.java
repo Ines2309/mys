@@ -16,21 +16,21 @@ public class Politica implements Politic {
 
     @Override
     public Servidor getServidor(){
-        Servidor servidor= null; 
+        Servidor servidor= servidores.get(0); //por defecto el primero
         for (Servidor s : servidores) {
             if (!s.isBusy()) {    
                  servidor=s;   
                  break;
             }
         }
-        if(servidor==null){
+        /*if(servidor==null){
             servidor = servidores.get(0); //por defecto el primero
             for(Servidor s : servidores){
                if(s.getFila().size() < servidor.getFila().size() ){
                 servidor= s;
                }
             }
-        }
+        }*/
 
         return servidor;    
     }
@@ -54,7 +54,7 @@ public class Politica implements Politic {
         this.servidores = servidores;
     }
 
-    public String inforServidor(){  //nos devuelve de todos los servidores el menor 
+    /*public String inforServidor(){  //nos devuelve de todos los servidores el menor 
         int maximo=0;
         int minimo=0;
      
@@ -93,7 +93,7 @@ public class Politica implements Politic {
             }
         }
         return minimo;
-    }
+    } */
     
     public List<EstadisticaOcio> getEstadisticasOcio() {
         List<EstadisticaOcio> estadisticas = new ArrayList<>();

@@ -18,7 +18,7 @@ public class Ejecucion {
         Servidor pista= null;
         MyqueuePriority cola = new MyqueuePriority();
         for (int i = 1; i <= cantidadServidores; i++) {
-            pista = new Servidor(i, tiempoSimulacion, cola); //Ahora asigna una misma cola para los 5 servidores
+            pista = new Servidor(i, tiempoSimulacion); //Ahora asigna una misma cola para los 5 servidores
             servidores.add(pista);
         }
 

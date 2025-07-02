@@ -17,8 +17,8 @@ public class EstadisticaTotal {
         this.ocio = bs.getPolitica().getEstadisticasOcio(); 
         this.espera = bs.getEspera();
         this.listaDesgaste = bs.getPolitica().getListaDesgaste();
-        this.maxFila = bs.getPolitica().getMaxFilaEspera();
-        this.minFila = bs.getPolitica().getMinFilaEspera();
+        this.maxFila = bs.getQueue().getCantMax(); //maximo de fila de espera
+        this.minFila = bs.getQueue().getCantMin(); //minimo de fila de espera   
     }
     
     public List<EstadisticaOcio> getOcio() {

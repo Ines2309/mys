@@ -7,6 +7,7 @@ import mys.estadisticas.EstadisticaOcio;
 import mys.mypolitics.Politica;
 import mys.numerosaleatorios.RandomMath;
 import mys.utilidades.Distribucion;
+import mys.utilidades.MyqueuePriority;
 
 public class Arribo extends Evento{
    private Distribucion distrucionSalida;
@@ -21,7 +22,7 @@ public class Arribo extends Evento{
 
        //set estado de servidor lo utilizamos para actualizar la informacion del servidor ya que trabajamos con la copia
   @Override
-    public boolean planificar(RandomMath ramdom, FutureEventList fel, Politica politica, EstadisticaEspera estadisticaEspera) {
+    public boolean planificar(RandomMath ramdom, FutureEventList fel, Politica politica, EstadisticaEspera estadisticaEspera, MyqueuePriority queue) {
         //double tiempodeServicio=0; 
        // double tiempoEntreArribos=0;
         Servidor servidor= politica.getServidor(); //Me devuelve un servidor desocupado segun la politica
@@ -29,7 +30,7 @@ public class Arribo extends Evento{
         Entida entidad = this.getEntidad();
         entidad.setClockArribo(this.getClock());
 
-        if(!servidor.isBusy()){ //Me devuelve un servidor desocupado
+        if(!servidor.isBusy()){
             servidor.setBusy(true);  
             Salida planDesalida = new Salida(entidad, distrucionSalida.getTiempo(ramdom.tirarRandom()) + this.getClock(), servidor, distrucionSalida);
             fel.insertar(planDesalida);
@@ -56,7 +57,7 @@ public class Arribo extends Evento{
 
         }else{
             
-            servidor.ponerEnCola(entidad);
+            queue.enqueue(entidad);;
         }
         politica.setEstadoServiodor(servidor); //servidor es una copia, no una refersncia
         //Planifico el siguiente arrivo

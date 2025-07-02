@@ -7,6 +7,7 @@ import mys.estadisticas.EstadisticaEspera;
 import mys.mypolitics.Politica;
 import mys.numerosaleatorios.RandomMath;
 import mys.utilidades.Distribucion;
+import mys.utilidades.MyqueuePriority;
 
 public class Salida extends Evento{
 
@@ -21,15 +22,15 @@ public class Salida extends Evento{
         corresponde con una distribución uniforme ( 10 , 25 ). */
 
     @Override
-    public boolean planificar(RandomMath ramdom, FutureEventList fel, Politica politica, EstadisticaEspera estadisticaEspera) {
+    public boolean planificar(RandomMath ramdom, FutureEventList fel, Politica politica, EstadisticaEspera estadisticaEspera, MyqueuePriority queue) {
 
         boolean a = false;
 
-        if (servidor.getFila().isEmpty()) {  //no hay fila
+        if (queue.isEmpty()) {  //no hay fila
             this.servidor.setBusy(false);
 
         } else {                                   //hay fila
-            Entida entidad = servidor.extraerCola();
+            Entida entidad = queue.dequEntidad(); //saco la entidad de la fila
             Salida salida = new Salida(entidad, getClock() + getDistribucion().getTiempo(ramdom.tirarRandom()), this.servidor, getDistribucion());
             fel.insertar(salida);
             this.servidor.setBusy(true);
